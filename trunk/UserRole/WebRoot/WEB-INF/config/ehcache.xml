@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ehcache>
+	<diskStore path="java.io.tempdir" />
+	<defaultCache maxElementsInMemory="10000" eternal="false"
+		overflowToDisk="false" timeToIdleSeconds="300" timeToLiveSeconds="180"
+		diskPersistent="false" diskExpiryThreadIntervalSeconds="120" />
+
+	<cache name="org.hibernate.cache.StandardQueryCache"
+		maxElementsInMemory="10000" eternal="false" timeToIdleSeconds="300"
+		timeToLiveSeconds="4200" overflowToDisk="true" />
+
+
+	<cache name="org.hibernate.cache.UpdateTimestampsCache"
+		maxElementsInMemory="5000" eternal="false" timeToIdleSeconds="0"
+		timeToLiveSeconds="0" overflowToDisk="false" />
+
+	<cache name="com.trgc.bean.TEmployee" maxElementsInMemory="1000" eternal="false"
+		timeToIdleSeconds="100" timeToLiveSeconds="4200" overflowToDisk="true" />
+</ehcache>
+
+
+
+
+
+
+
