@@ -49,14 +49,24 @@ public class Test {
 		tr.commit();
 		session.close();
 	}
+	
+	public static void testQuery(){
+		Session session = sessionFactory.openSession();
+		Transaction tr = session.beginTransaction();
+		tr.begin();
+		Trole trole = (Trole)session.get(Trole.class, 12);
+		System.out.println(trole.getTauths().size());
+		tr.commit();
+		session.close();
+	}
 	public static void main(String[] args) {
 		
 		//test01();
 		//test02();
 		//test03();
 		//test04();
-		//test05();
-		testInsert();
+		testQuery();
+//		testInsert();
 
 	}
 
