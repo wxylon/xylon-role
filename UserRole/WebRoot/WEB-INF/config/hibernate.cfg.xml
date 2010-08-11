@@ -17,6 +17,7 @@
 		<property name="connection.driver_class">
 			com.mysql.jdbc.Driver
 		</property>
+		<property name="show_sql">true</property>
 		<mapping resource="org/role/pojo/Trole.hbm.xml" />
 		<mapping resource="org/role/pojo/Tauth.hbm.xml" />
 		<mapping resource="org/role/pojo/Torganization.hbm.xml" />
