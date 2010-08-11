@@ -50,7 +50,7 @@
                 <comment>登录次数</comment>
             </column>
         </property>
-        <set name="Tauths" inverse="true" table="tuserauth" cascade="all" outer-join="false">
+        <set name="Tauths" table="tuserauth" cascade="all" outer-join="false">
             <key>
                 <column name="TU_ID" not-null="true">
                     <comment>角色</comment>
@@ -62,7 +62,7 @@
                 </column>
             </many-to-many>
         </set>
-        <set name="Troles" inverse="true" table="tuserrole" cascade="all" outer-join="false">
+        <set name="Troles" table="tuserrole" cascade="all" outer-join="false">
             <key>
                 <column name="TU_ID" not-null="true">
                     <comment>角色</comment>
@@ -74,7 +74,7 @@
                 </column>
             </many-to-many>
         </set>
-        <set name="Tgroups" inverse="true" table="tusergroup" cascade="all" outer-join="false">
+        <set name="Tgroups" table="tusergroup" cascade="all" outer-join="false">
             <key>
                 <column name="TU_ID" not-null="true">
                     <comment>角色</comment>
@@ -86,7 +86,7 @@
                 </column>
             </many-to-many>
         </set>
-        <set name="Tlogs" inverse="true">
+        <set name="Tlogs">
             <key>
                 <column name="TU_ID" not-null="true">
                 </column>

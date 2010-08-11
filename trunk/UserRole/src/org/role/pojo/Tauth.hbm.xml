@@ -25,7 +25,7 @@
                 <comment>权限描述</comment>
             </column>
         </property>
-        <set name="Troles" inverse="true" table="troleauth" cascade="all" outer-join="false">
+        <set name="Troles" table="troleauth" cascade="all" outer-join="false">
             <key>
                 <column name="TA_ID" not-null="true">
                     <comment>角色</comment>
@@ -37,7 +37,7 @@
                 </column>
             </many-to-many>
         </set>
-        <set name="Tusers" inverse="true" table="tuserauth" cascade="all" outer-join="false">
+        <set name="Tusers" table="tuserauth" cascade="all" outer-join="false">
             <key>
                 <column name="TA_ID" not-null="true">
                     <comment>角色</comment>
@@ -49,7 +49,7 @@
                 </column>
             </many-to-many>
         </set>
-        <set name="Tgroups" inverse="true" table="tusergroup" cascade="all" outer-join="false">
+        <set name="Tgroups" table="tusergroup" cascade="all" outer-join="false">
             <key>
                 <column name="TA_ID" not-null="true">
                     <comment>角色</comment>

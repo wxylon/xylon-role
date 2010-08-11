@@ -30,7 +30,7 @@
                 <comment>组描述</comment>
             </column>
         </property>
-        <set name="Tauths" inverse="true" table="tgroupauth" cascade="all" outer-join="false">
+        <set name="Tauths" table="tgroupauth" cascade="all" outer-join="false">
             <key>
                 <column name="TG_ID" not-null="true">
                     <comment>角色</comment>
@@ -42,7 +42,7 @@
                 </column>
             </many-to-many>
         </set>
-        <set name="Tusers" inverse="true" table="tusergroup" cascade="all" outer-join="false">
+        <set name="Tusers" table="tusergroup" cascade="all" outer-join="false">
             <key>
                 <column name="TG_ID" not-null="true">
                     <comment>角色</comment>
@@ -54,7 +54,7 @@
                 </column>
             </many-to-many>
         </set>
-        <set name="Troles" inverse="true" table="tgrouprole" cascade="all" outer-join="false">
+        <set name="Troles" table="tgrouprole" cascade="all" outer-join="false">
             <key>
                 <column name="TG_ID" not-null="true">
                     <comment>角色</comment>
