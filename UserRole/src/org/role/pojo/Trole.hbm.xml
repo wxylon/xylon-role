@@ -30,7 +30,7 @@
                 <comment>角色描述</comment>
             </column>
         </property>
-        <set name="Tauths" inverse="true" table="troleauth" cascade="all" outer-join="false">
+        <set name="Tauths" table="troleauth" cascade="all" outer-join="false">
             <key>
                 <column name="TR_ID" not-null="true">
                     <comment>角色</comment>
@@ -42,7 +42,7 @@
                 </column>
             </many-to-many>
         </set>
-        <set name="Tgroups" inverse="true" table="tgrouprole" cascade="all" outer-join="false">
+        <set name="Tgroups" table="tgrouprole" cascade="all" outer-join="false">
             <key>
                 <column name="TR_ID" not-null="true">
                     <comment>角色</comment>
@@ -54,7 +54,7 @@
                 </column>
             </many-to-many>
         </set>
-        <set name="Tusers" inverse="true" table="tuserrole" cascade="all" outer-join="false">
+        <set name="Tusers" table="tuserrole" cascade="all" outer-join="false">
             <key>
                 <column name="TR_ID" not-null="true">
                     <comment>角色</comment>
