@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd
+           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
+
+	<context:component-scan base-package="org.role" />
+
+	<bean id="config"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config.properties</value>
+			</list> 
+		</property>
+	</bean>
+	
+<!-- Mysql 数据源 -->
+	<bean id="mySqlDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="${mysql.driverClassName}"></property>
+		<property name="url" value="${mysql.url}"></property>
+		<property name="username" value="${mysql.username}"></property>
+		<property name="password" value="${mysql.password}"></property>
+		<property name="initialSize" value="5"></property>
+		<property name="maxActive" value="100"></property>
+		<property name="maxIdle" value="30"></property>
+		<property name="minIdle" value="5"></property>
+		<property name="maxWait" value="500"></property>
+		<property name="defaultAutoCommit" value="true"></property>
+	</bean>
+	
+	
+<!-- Mysql Sessionfactory -->
+	<bean id="mysqlsessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="mySqlDataSource"></property>
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=org.hibernate.dialect.MySQLDialect
+				hibernate.cache.use_second_level_cache=true
+				hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
+				hibernate.cache.use_query_cache=true
+				hibernate.jdbc.batch_size = 50
+				hibernate.jdbc.fetch_size = 50
+				<!-- 测试Hibernate 性能数据，调试性能 -->
+				hibernate.generate_statistics = true
+				hibernate.show_sql=true
+				hibernate.format_sql=false
+			</value>
+		</property>
+		<property name="mappingDirectoryLocations">
+			<list>
+				<value>classpath:org/role/pojo/</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="mysqlsessionFactory" />
+	</bean>
+	<tx:annotation-driven transaction-manager="txManager" />
+	<aop:config>
+		<aop:pointcut id="transactionPointcut" expression="execution(* org.role.service..*.*(..))" />
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="transactionPointcut" />
+	</aop:config>
+	<tx:advice id="txAdvice" transaction-manager="txManager">
+		<tx:attributes>
+			<tx:method name="get*" read-only="true" propagation="NOT_SUPPORTED" />
+			<tx:method name="list*" read-only="true" propagation="NOT_SUPPORTED" />
+			<tx:method name="save" no-rollback-for="java.lang.RuntimeException" />
+			<tx:method name="*" />
+		</tx:attributes>
+	</tx:advice>
+	</beans>
