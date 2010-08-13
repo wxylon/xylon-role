@@ -1,5 +1,7 @@
 package org.role.service;
 
-public interface ITRole {
+import org.role.service.base.Service;
+
+public interface ITRole extends Service{
 
 }
