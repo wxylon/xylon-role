@@ -9,7 +9,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.role.pojo.Tauth;
+import org.role.pojo.Torganization;
 import org.role.pojo.Trole;
+import org.role.pojo.Tuser;
 
 public class Test {
 
@@ -50,6 +52,34 @@ public class Test {
 		session.close();
 	}
 	
+	public static void testUser(){
+		Session session = sessionFactory.openSession();
+		Set set = new HashSet();
+		Tuser tuser = new Tuser();
+		tuser.setUserName("xiaoqi");
+		tuser.setCreateTime(new Date());
+		tuser.setEmail("1@g.com");
+		tuser.setLastLoginTime(new Date());
+		tuser.setLoginCount(0);
+		tuser.setPassWord("000000");
+		tuser.setVserName("测试");
+		tuser.setLoginTime(new Date());
+		set.add(tuser);
+		Torganization torganization = new Torganization();
+		torganization.setToName("技术部");
+		torganization.setCreateTime(new Date());
+		torganization.setDescription("测试用例");
+		torganization.setToParentId(0);
+//		torganization.setTusers(set);
+		Transaction tr = session.beginTransaction();
+		tuser.setTorganization(torganization);
+		tr.begin();
+		session.save(torganization);
+		session.save(tuser);
+		tr.commit();
+		session.close();
+	}
+	
 	public static void testQuery(){
 		Session session = sessionFactory.openSession();
 		Transaction tr = session.beginTransaction();
@@ -66,7 +96,7 @@ public class Test {
 		//test03();
 		//test04();
 //		testQuery();
-		testInsert();
+		testUser();
 
 	}
 
