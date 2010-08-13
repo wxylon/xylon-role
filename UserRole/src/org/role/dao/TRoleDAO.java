@@ -1,5 +1,7 @@
 package org.role.dao;
 
-public interface TRoleDAO {
+import org.role.dao.base.DAO;
+
+public interface TRoleDAO extends DAO{
 	
 }
