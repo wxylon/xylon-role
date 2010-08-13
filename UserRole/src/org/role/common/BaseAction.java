@@ -6,9 +6,13 @@ import javax.servlet.ServletContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;   
+import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.web.context.ServletContextAware;
+
 import com.opensymphony.xwork2.ActionSupport;   
    
-public class BaseAction extends ActionSupport {   
+public class BaseAction extends ActionSupport implements SessionAware,ServletContextAware,RequestAware {   
        
     private static final long serialVersionUID = -7509152655359967096L;
     
