@@ -7,5 +7,8 @@
 	<constant name="struts.convention.package.locators" value="action" />
 	<constant name="struts.convention.package.locators.basePackage" value="com.trgc" />
 	
+	<package name="admin">
+		<action name="/"></action>
+	</package>
 
 </struts>
