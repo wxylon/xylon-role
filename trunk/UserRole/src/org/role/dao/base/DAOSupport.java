@@ -38,9 +38,4 @@ public class DAOSupport<T> implements DAO<T>{
 	public void update(Object entity) {
 		this.getHibernateSession().merge(entity);
 	}
-
-	public Session getCurrentSession() {
-		return this.getHibernateSession();
-	}
-
 }
