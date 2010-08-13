@@ -71,6 +71,12 @@
 		<auth-method>BASIC</auth-method>
 	</login-config>
 	
+	<servlet>
+		<servlet-name>InitApplication</servlet-name>
+		<servlet-class>org.role.common.InitApplication</servlet-class>
+		 <load-on-startup>1</load-on-startup>
+	</servlet>
+	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
 		<welcome-file>index.jsp</welcome-file>
