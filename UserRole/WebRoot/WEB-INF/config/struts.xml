@@ -3,12 +3,14 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
 	<constant name="struts.multipart.maxSize" value="10000000" />
-	<constant name="struts.convention.default.parent.package" value="back" />
+	<constant name="struts.convention.default.parent.package" value="admin" />
 	<constant name="struts.convention.package.locators" value="action" />
-	<constant name="struts.convention.package.locators.basePackage" value="com.trgc" />
+	<constant name="struts.convention.package.locators.basePackage" value="org.role" />
 	
-	<package name="admin">
-		<action name="/"></action>
+	<package name="admin" extends="struts-default,json-default">
+		<action name="tRoleAction" class="tRoleAction">
+			<result name="success">/page/index.jsp</result>
+		</action>
 	</package>
 
 </struts>
