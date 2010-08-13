@@ -1,28 +1,84 @@
-<project name="UserRole" path="D:/work/UserRole/UserRole/WebRoot/WEB-INF" destpath="D:/work/UserRole/UserRole" actionWhenTargetExists="0">
-<projectscript>
-</projectscript>
-<database>
-<driver>
-<![CDATA[MySQLClient]]>
-</driver>
-<host>
-<![CDATA[localhost]]>
-</host>
-<port>
-<![CDATA[3306]]>
-</port>
-<username>
-<![CDATA[root]]>
-</username>
-<password>
-<![CDATA[000000]]>
-</password>
-<dbname>
-<![CDATA[user]]>
-</dbname>
-</database>
-<folder name="d" path="d" destpath="d" actionWhenTargetExists="0" skipWhenGenerateAll="0">
-</folder>
-<workingsets>
-</workingsets>
-</project>
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<!-- Spring ApplicationContext配置文件的路径 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:applicationContext*.xml
+		</param-value>
+	</context-param>
+	<!-- OpenSessionInViewFilter -->
+	<filter>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<filter-class>org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<!-- Struts2 filter -->
+	<filter>
+		<filter-name>struts2CleanupFilter</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ActionContextCleanUp</filter-class>
+	</filter>
+	<filter>
+		<filter-name>struts2Filter</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+	</filter>
+	<!-- Filter 映射 -->
+	<filter-mapping>
+		<filter-name>OpenSessionInViewFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>struts2CleanupFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>struts2Filter</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+		<dispatcher>FORWARD</dispatcher>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>struts2Filter</filter-name>
+		<url-pattern>/page/*</url-pattern>
+	</filter-mapping>
+	<!-- CXF -->
+	<!--Spring的ApplicationContext 载入 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<!-- Spring 刷新Introspector防止内存泄露 -->
+	<listener>
+		<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+	</listener>
+	<session-config>
+		<session-timeout>60</session-timeout>
+	</session-config>
+	
+	<jsp-config>
+		<jsp-property-group>
+			<display-name>JSPConfiguration</display-name>
+			<url-pattern>*.html</url-pattern>
+			<el-ignored>true</el-ignored>
+			<page-encoding>UTF-8</page-encoding>
+			<scripting-invalid>false</scripting-invalid>
+		</jsp-property-group>
+	</jsp-config>
+	<login-config>
+		<auth-method>BASIC</auth-method>
+	</login-config>
+	
+	<servlet>
+		<servlet-name>InitApplication</servlet-name>
+		<servlet-class>org.role.common.InitApplication</servlet-class>
+		 <load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
