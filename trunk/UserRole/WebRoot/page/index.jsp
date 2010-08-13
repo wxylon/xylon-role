@@ -1,16 +1,13 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ include file="/page/common/taglib.jsp"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-  <head>
-    <title>My JSP 'index.jsp' starting page</title>
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-  </head>
   <body>
-  	1:<select size="10"></select>
-  	2:<select size="10"></select>
+  	<select size="10" style="width: 60px;">
+  		<c:forEach var="tRole" items="${tRoles}">
+  			<option value="${tRole.trId}">${tRole.trName}</option>
+  		</c:forEach>
+  	</select>
+  	<select size="10"></select>
   </body>
 </html>
