@@ -1,33 +1,51 @@
 package org.role.common;
 
+import java.util.HashMap;
+import java.util.Map;
+import javax.servlet.ServletContext;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.struts2.ServletActionContext;   
 import com.opensymphony.xwork2.ActionSupport;   
-import com.opensymphony.xwork2.ActionContext;   
    
 public class BaseAction extends ActionSupport {   
        
-    private static final long serialVersionUID = -7509152655359967096L;   
+    private static final long serialVersionUID = -7509152655359967096L;
+    
+	protected Log log = LogFactory.getLog(this.getClass());
    
-    // 检查Session对象是否存在    
-    protected boolean isExistSession(String key) {   
-        if (ActionContext.getContext().getSession().get(key) != null) {   
-            return true;   
-        } else {   
-            return false;   
-        }   
-    }   
-   
-    // 保存Session对象    
-    protected void setSession(String key, Object obj) {   
-        ActionContext.getContext().getSession().put(key, obj);   
-    }   
-   
-    // 取得Session对象    
-    protected Object getSession(String key) {   
-        return ActionContext.getContext().getSession().get(key);   
-    }   
+	protected Map session = new HashMap();
+    protected Map request = new HashMap();   
+    protected ServletContext servletContext;
+	public String execute() throws Exception{
+    	return super.execute();
+	}
+
+    public void setSession(Map session) {
+        this.session=session;
+    }
+    
+    public void setRequest(Map request) {
+        this.request=request;
+    }
+
+	public void setServletContext(ServletContext arg0) {
+		this.servletContext=arg0;
+	}
        
-    // 保存一条错误    
+    public Map getSession() {
+		return session;
+	}
+
+	public Map getRequest() {
+		return request;
+	}
+
+	public ServletContext getServletContext() {
+		return servletContext;
+	}
+
+	// 保存一条错误    
     protected void saveActionError(String key) {   
         super.addActionError(super.getText(key));   
     }   
