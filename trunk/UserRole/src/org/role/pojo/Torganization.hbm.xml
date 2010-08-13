@@ -30,7 +30,7 @@
                 <comment>组织描述</comment>
             </column>
         </property>
-        <set name="Tusers" inverse="true">
+        <set name="Tusers">
             <key>
                 <column name="TO_ID" not-null="true">
                     <comment>TO_ID</comment>
