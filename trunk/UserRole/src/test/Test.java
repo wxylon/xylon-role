@@ -65,8 +65,8 @@ public class Test {
 		//test02();
 		//test03();
 		//test04();
-		testQuery();
-//		testInsert();
+//		testQuery();
+		testInsert();
 
 	}
 
