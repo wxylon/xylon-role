@@ -30,9 +30,9 @@
                 <comment>组织描述</comment>
             </column>
         </property>
-        <set name="Tusers">
+        <set name="Tusers" lazy="false">
             <key>
-                <column name="TO_ID" not-null="true">
+                <column name="TO_ID">
                     <comment>TO_ID</comment>
                 </column>
             </key>
