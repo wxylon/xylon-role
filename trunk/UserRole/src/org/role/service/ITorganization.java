@@ -2,8 +2,9 @@ package org.role.service;
 
 import java.util.List;
 
-import org.role.dao.base.DAO;
-import org.role.pojo.Trole;
+import org.role.pojo.Torganization;
+import org.role.service.base.Service;
 
-public interface ITorganization extends DAO{
+public interface ITorganization extends Service<Torganization>{
+	public List<Torganization> get(int count);
 }
