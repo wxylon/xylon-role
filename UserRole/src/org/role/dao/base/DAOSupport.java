@@ -27,8 +27,8 @@ public class DAOSupport<T> implements DAO<T>{
 	public T get(Serializable entityId) {
 		if (entityId == null)
 			throw new RuntimeException(this.entityClass.getName() + ":�����ʵ��id����Ϊ��");
-		Object object = this.getHibernateSession().get(entityClass, entityId);
-		return (T)object;
+		System.out.println(this.entityClass.getName());
+		return (T)this.getHibernateSession().get(entityClass, entityId);
 	}
 
 	public void save(Object entity) {
