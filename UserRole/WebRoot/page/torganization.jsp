@@ -3,24 +3,24 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <body style="margin-left: 350px;margin-top: 200px;">
-  	<div><a href="/">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;角色管理</div></br></br>
-  	<form action="tRoleAction!save.action" name="" method="post">
+  	<div><a href="/">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;部门管理</div></br></br>
+  	<form action="torganizationAction!save.action" name="" method="post">
 		  <table>
 		  	<tr>
-		  		<td>角色名称</td>
-		  		<td><input name="trole.trName" value=""/></td>
+		  		<td>部门名称</td>
+		  		<td><input name="torganization.toName" value=""/></td>
 		  	</tr>
 		  	<tr>
-		  		<td>父级角色ID</td>
+		  		<td>父级部门ID</td>
 		  		<td>
-		  			<select name="trole.parentTrId">
+		  			<select name="torganization.toParentId">
 		  				<option value="0">默认</option>
 		  			</select>
 		  		</td>
 		  	</tr>
 		  	<tr>
-		  		<td>角色描述</td>
-		  		<td><input name="trole.description" value=""/></td>
+		  		<td>部门描述</td>
+		  		<td><input name="torganization.description" value=""/></td>
 		  	</tr>
 		  	<tr>
 		  		<td><input type="submit" value="提交"/></td>
