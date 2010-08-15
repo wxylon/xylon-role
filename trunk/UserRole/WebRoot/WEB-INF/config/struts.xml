@@ -2,6 +2,7 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
+	<include file="struts-default.xml"></include> 
 	<constant name="struts.multipart.maxSize" value="10000000" />
 	<constant name="struts.convention.default.parent.package" value="admin" />
 	<constant name="struts.convention.package.locators" value="action" />
@@ -9,6 +10,18 @@
 	
 	<package name="admin" extends="struts-default,json-default">
 		<action name="tRoleAction" class="tRoleAction">
+			<result name="success">/page/index.jsp</result>
+		</action>
+		<action name="torganizationAction" class="torganizationAction">
+			<result name="success">/page/index.jsp</result>
+			<result type="json">
+				<param name="root">torgs</param>   
+			</result>
+		</action>
+	</package>
+	
+	<package name="common" extends="admin">
+		<action name="tuserAction" class="tuserAction">
 			<result name="success">/page/index.jsp</result>
 		</action>
 	</package>
