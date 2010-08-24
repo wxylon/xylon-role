@@ -14,7 +14,4 @@ public class TorganizationDAOImpl extends DAOSupport<Torganization> implements T
 		String HQL = "FROM Torganization";
 		return super.getHibernateSession().createQuery(HQL).setFirstResult(0).setMaxResults(count).list();
 	}
-	
-	
-
 }
