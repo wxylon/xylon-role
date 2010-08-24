@@ -39,7 +39,10 @@ public class TorganizationAction extends BaseAction {
 	public String get(){
 		log.debug("TorganizationAction--->get--->start");
 		torgs = iTorganization.get(10);
-
+		//将不需要的对象置空，否则出现懒加载异常
+		for(Torganization torganization : torgs){
+			torganization.setTusers(null);
+		}
 		return ActionSupport.SUCCESS;
 	}
 
