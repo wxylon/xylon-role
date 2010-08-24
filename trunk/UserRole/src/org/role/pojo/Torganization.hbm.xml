@@ -30,13 +30,13 @@
                 <comment>组织描述</comment>
             </column>
         </property>
-        <set name="Tusers" lazy="false">
+        <set name="Tusers" lazy="true" cascade="none" fetch="select" inverse="true">
             <key>
                 <column name="TO_ID">
                     <comment>TO_ID</comment>
                 </column>
             </key>
-            <one-to-many class="org.role.pojo.Tuser" />
+            <one-to-many class="org.role.pojo.Tuser" not-found="ignore"/>
         </set>
     </class>
 </hibernate-mapping>
