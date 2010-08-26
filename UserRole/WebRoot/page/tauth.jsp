@@ -7,20 +7,20 @@
   	<form action="tRoleAction!save.action" name="" method="post">
 		  <table>
 		  	<tr>
-		  		<td>角色名称</td>
+		  		<td>权限名称</td>
 		  		<td><input name="trole.trName" value=""/></td>
 		  	</tr>
 		  	<tr>
-		  		<td>父级角色ID</td>
+		  		<td>父权限</td>
 		  		<td>
 		  			<select name="trole.parentTrId">
 		  				<option value="0">默认</option>
 		  			</select>
 		  		</td>
-		  		<td><em>默认为根角色</em></td>
+		  		<td><em>默认为根权限</em></td>
 		  	</tr>
 		  	<tr>
-		  		<td>角色描述</td>
+		  		<td>权限描述</td>
 		  		<td><input name="trole.description" value=""/></td>
 		  	</tr>
 		  	<tr>
