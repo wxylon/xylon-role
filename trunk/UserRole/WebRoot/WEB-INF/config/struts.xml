@@ -18,6 +18,12 @@
 				<param name="root">torgs</param>   
 			</result>
 		</action>
+		<action name="tauthAction" class="tauthAction">
+			<result name="success">/page/index.jsp</result>
+			<result type="json">
+				<param name="root">tauths</param>   
+			</result>
+		</action>
 	</package>
 	
 	<package name="common" extends="admin">
