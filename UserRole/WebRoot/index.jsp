@@ -13,5 +13,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	<a href="/page/trole.jsp">角色管理</a><br>
    	<a href="/page/tuser.jsp">用户注册</a><br>
    	<a href="/page/torganization.jsp">部门管理</a><br>
+   	<a href="/page/tauth.jsp">权限管理</a><br>
 	</body>
 </html>
