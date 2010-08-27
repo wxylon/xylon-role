@@ -30,10 +30,11 @@ public class TorganizationAction extends BaseAction {
 		try {
 			torganization.setCreateTime(new Date());
 			iTorganization.save(torganization);
-		} catch (RuntimeException e) {
+			
+			} catch (RuntimeException e) {
 			e.printStackTrace();
 		}
-		return ActionSupport.SUCCESS;
+			return "info";
 	}
 	
 	public String get(){
