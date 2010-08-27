@@ -5,16 +5,20 @@ import javax.annotation.Resource;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.role.common.GenericsUtils;
+import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
-public class DAOSupport<T> implements DAO<T>{
+public class DAOSupport<T> extends HibernateDaoSupport implements DAO<T>{
 	
 	protected Class<T> entityClass = GenericsUtils.getSuperClassGenricType(this.getClass());
 	
-	@Resource
-	private SessionFactory sessionFactory;
-	
+	@Resource(name="sessionFactory")
+	public void setSessFactory(SessionFactory sessionFactory) {
+//		this.sessionFactory = sessionFactory;
+		super.setSessionFactory(sessionFactory);
+	}
+
 	public Session getHibernateSession(){
-		return sessionFactory.getCurrentSession();
+		return super.getSessionFactory().getCurrentSession();
 	}
 
 	public void delete(Serializable... entityids) {
