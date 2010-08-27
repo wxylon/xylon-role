@@ -47,8 +47,8 @@
 				hibernate.cache.use_query_cache=true
 				hibernate.jdbc.batch_size = 50
 				hibernate.jdbc.fetch_size = 50
-				<!-- 测试Hibernate 性能数据，调试性能 -->
-				hibernate.current_session_context_class = thread
+				<!-- 测试Hibernate 性能数据，调试性能 
+				hibernate.current_session_context_class = thread-->
 				hibernate.generate_statistics = true
 				hibernate.show_sql=true
 				hibernate.format_sql=false
