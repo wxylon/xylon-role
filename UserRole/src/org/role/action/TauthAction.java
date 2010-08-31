@@ -20,14 +20,19 @@ public class TauthAction extends BaseAction {
 	private List<Tauth> tauths;
 	private Tauth tauth;
 	
-	public String execute() throws Exception {
+	public String get() throws Exception {
 		tauths = iTauth.get(10);
+		for(int i = 0; i < tauths.size(); i++){
+			tauths.get(i).setTgroups(null);
+			tauths.get(i).setTroles(null);
+			tauths.get(i).setTusers(null);
+		}
 		return ActionSupport.SUCCESS;
 	}
 	
 	public String save() throws Exception{
 		iTauth.save(tauth);
-		return ActionSupport.SUCCESS;
+		return "forward";
 	}
 	
 	
