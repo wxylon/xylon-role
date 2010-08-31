@@ -10,7 +10,10 @@
 	
 	<package name="admin" extends="struts-default,json-default">
 		<action name="tRoleAction" class="tRoleAction">
-			<result name="success">/page/index.jsp</result>
+			<result name="forward">/page/index.jsp</result>
+			<result type="json">
+				<param name="root">troles</param>   
+			</result>
 		</action>
 		<action name="torganizationAction" class="torganizationAction">
 			<result name="info">/page/index.jsp</result>
@@ -19,9 +22,15 @@
 			</result>
 		</action>
 		<action name="tauthAction" class="tauthAction">
-			<result name="success">/page/index.jsp</result>
+			<result name="forward">/page/index.jsp</result>
 			<result type="json">
 				<param name="root">tauths</param>   
+			</result>
+		</action>
+		<action name="tgroupAction" class="tgroupAction">
+			<result name="forward">/page/index.jsp</result>
+			<result type="json">
+				<param name="root">tgroups</param>   
 			</result>
 		</action>
 	</package>
