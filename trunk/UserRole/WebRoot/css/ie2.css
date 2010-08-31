@@ -1,0 +1,12 @@
+.left_menu li.top {
+	float:left;
+}
+
+.left_common li.noselect, .left_common li.select, .left_bottom li.bottom{
+    float:left;
+	
+}
+/*ie6*/
+*html .head_menu li{
+	height:20px;
+	padding:5px 0px 0px 0px;}
