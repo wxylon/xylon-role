@@ -36,7 +36,7 @@
                     <comment>角色</comment>
                 </column>
             </key>
-            <many-to-many entity-name="org.role.pojo.Tauth">
+            <many-to-many entity-name="org.role.pojo.Tauth" not-found="ignore">
                 <column name="TA_ID" not-null="true">
                     <comment>用户</comment>
                 </column>
@@ -48,7 +48,7 @@
                     <comment>角色</comment>
                 </column>
             </key>
-            <many-to-many entity-name="org.role.pojo.Tgroup">
+            <many-to-many entity-name="org.role.pojo.Tgroup" not-found="ignore">
                 <column name="TG_ID" not-null="true">
                     <comment>用户</comment>
                 </column>
@@ -60,7 +60,7 @@
                     <comment>角色</comment>
                 </column>
             </key>
-            <many-to-many entity-name="org.role.pojo.Tuser">
+            <many-to-many entity-name="org.role.pojo.Tuser" not-found="ignore">
                 <column name="TU_ID" not-null="true">
                     <comment>用户</comment>
                 </column>
