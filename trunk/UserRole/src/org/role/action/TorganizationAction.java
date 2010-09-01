@@ -5,9 +5,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
-
 import org.role.common.BaseAction;
 import org.role.pojo.Torganization;
 import org.role.service.ITorganization;
