@@ -22,7 +22,7 @@ $(document).ready(function() {
 </script>
 </head>
   <body style="margin-left: 350px;margin-top: 200px;">
-  	<div><a href="/">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;部门管理</div></br></br>
+  	<div><a href="/">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;部门管理</div><br/><br/>
   	<form action="torganizationAction!save.action" name="" method="post">
 		  <table>
 		  	<tr>
