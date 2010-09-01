@@ -97,6 +97,5 @@ $(document).ready(function(){
 		<div class="left_bottom">
 			<li class="bottom"></li>
 		</div>
-		</div>
 	</body>
 </html>
