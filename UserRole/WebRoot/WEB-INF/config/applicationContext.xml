@@ -27,21 +27,19 @@
 		<property name="username" value="${mysql.username}"></property>
 		<property name="password" value="${mysql.password}"></property>
 		<!-- 初始化连接个数， 该参数关联 maxIdle 取最小值，为初始化链接个数 -->
-		<property name="initialSize" value="5"></property>
+		<property name="initialSize" value="2"></property>
 		<!-- 最大连接个数 -->
 		<property name="maxActive" value="10"></property>
 		<!-- 最小空闲个数 -->
 		<property name="minIdle" value="1"></property>
 		<!-- 最大空闲个数 -->
-		<property name="maxIdle" value="5"></property>
+		<property name="maxIdle" value="2"></property>
 		<!-- 在抛出异常之前，池等待连接被回收的最长时间 -->
 		<property name="maxWait" value="1"></property>
 		<!-- 连接保持空闲而不被驱逐的最长时间 -->
 		<property name="minEvictableIdleTimeMillis" value="1"></property>
-		
-		
 		<!-- 自动提交 -->
-		<property name="defaultAutoCommit" value="true"></property>
+		<property name="defaultAutoCommit" value="false"></property>
 	</bean>
 	
 	
@@ -84,8 +82,8 @@
 		<tx:attributes>
 			<tx:method name="get*" read-only="true" propagation="NOT_SUPPORTED" />
 			<tx:method name="list*" read-only="true" propagation="NOT_SUPPORTED" />
-			<tx:method name="save" no-rollback-for="java.lang.RuntimeException" />
-			<tx:method name="*" />
+			<tx:method name="save" propagation="REQUIRED" />
+			<tx:method name="*"  read-only="true" propagation="NOT_SUPPORTED"/>
 		</tx:attributes>
 	</tx:advice>
 	</beans>
