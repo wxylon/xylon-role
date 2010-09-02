@@ -21,16 +21,26 @@
 	</bean>
 	
 <!-- Mysql 数据源 -->
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${mysql.driverClassName}"></property>
 		<property name="url" value="${mysql.url}"></property>
 		<property name="username" value="${mysql.username}"></property>
 		<property name="password" value="${mysql.password}"></property>
+		<!-- 初始化连接个数， 该参数关联 maxIdle 取最小值，为初始化链接个数 -->
 		<property name="initialSize" value="5"></property>
-		<property name="maxActive" value="100"></property>
-		<property name="maxIdle" value="30"></property>
-		<property name="minIdle" value="5"></property>
-		<property name="maxWait" value="500"></property>
+		<!-- 最大连接个数 -->
+		<property name="maxActive" value="10"></property>
+		<!-- 最小空闲个数 -->
+		<property name="minIdle" value="1"></property>
+		<!-- 最大空闲个数 -->
+		<property name="maxIdle" value="5"></property>
+		<!-- 在抛出异常之前，池等待连接被回收的最长时间 -->
+		<property name="maxWait" value="1"></property>
+		<!-- 连接保持空闲而不被驱逐的最长时间 -->
+		<property name="minEvictableIdleTimeMillis" value="1"></property>
+		
+		
+		<!-- 自动提交 -->
 		<property name="defaultAutoCommit" value="true"></property>
 	</bean>
 	
@@ -47,8 +57,8 @@
 				hibernate.cache.use_query_cache=true
 				hibernate.jdbc.batch_size = 50
 				hibernate.jdbc.fetch_size = 50
-				<!-- 测试Hibernate 性能数据，调试性能 
-				hibernate.current_session_context_class = thread-->
+				<!-- 测试Hibernate 性能数据，调试性能 -->
+				hibernate.current_session_context_class = thread
 				hibernate.generate_statistics = true
 				hibernate.show_sql=true
 				hibernate.format_sql=false
