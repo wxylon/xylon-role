@@ -5,7 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Torganization implements java.io.Serializable {
-
+		
+	private static final long serialVersionUID = -4242848584269792198L;
 	private Integer toId;
 	private Integer toParentId;
 	private String toName;

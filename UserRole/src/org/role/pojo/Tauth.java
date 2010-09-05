@@ -4,7 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Tauth implements java.io.Serializable {
-
+		
+	private static final long serialVersionUID = 5628665159002658570L;
 	private Integer taId;
 	private Integer taParentId;
 	private String taName;

@@ -6,6 +6,7 @@ import java.util.Set;
 
 public class Tgroup implements java.io.Serializable {
 
+	private static final long serialVersionUID = 3495422030501687299L;
 	private Integer tgId;
 	private Integer tgParentId;
 	private String tgName;
