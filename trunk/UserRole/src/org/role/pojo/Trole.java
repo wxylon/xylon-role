@@ -5,7 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Trole implements java.io.Serializable {
-
+		
+	private static final long serialVersionUID = -1260915131321552274L;
 	private Integer trId;
 	private Integer parentTrId;
 	private String trName;

@@ -5,7 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Tuser implements java.io.Serializable {
-
+	
+	private static final long serialVersionUID = 6125948160023944166L;
 	private Integer tuId;
 	private Torganization torganization;
 	private String userName;

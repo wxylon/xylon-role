@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Tlog implements java.io.Serializable {
 
+	private static final long serialVersionUID = -2348956141352412079L;
 	private Integer tlId;
 	private Tuser tuser;
 	private Byte toType;
