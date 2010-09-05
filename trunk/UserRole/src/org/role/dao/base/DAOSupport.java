@@ -13,7 +13,6 @@ public class DAOSupport<T> extends HibernateDaoSupport implements DAO<T>{
 	
 	@Resource(name="sessionFactory")
 	public void setSessFactory(SessionFactory sessionFactory) {
-//		this.sessionFactory = sessionFactory;
 		super.setSessionFactory(sessionFactory);
 	}
 
@@ -36,7 +35,7 @@ public class DAOSupport<T> extends HibernateDaoSupport implements DAO<T>{
 	}
 
 	public void save(Object entity) {
-		this.getHibernateSession().persist(entity);
+		this.getHibernateSession().save(entity);
 	}
 
 	public void update(Object entity) {
