@@ -1,9 +1,7 @@
 package org.role.service;
 
-import java.util.List;
+import org.role.pojo.Tuser;
+import org.role.service.base.Service;
 
-import org.role.dao.base.DAO;
-import org.role.pojo.Trole;
-
-public interface ITuser extends DAO{
+public interface ITuser extends Service<Tuser>{
 }
