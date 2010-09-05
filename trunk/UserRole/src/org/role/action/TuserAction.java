@@ -1,6 +1,7 @@
 package org.role.action;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -22,6 +23,7 @@ public class TuserAction extends BaseAction {
 	@Resource ITorganization iTorganization;
 	
 	private Tuser tuser;
+	private List<Tuser> tusers;
 	
 	public String save(){
 		log.debug("TuserAction--->save--->start");
@@ -33,15 +35,26 @@ public class TuserAction extends BaseAction {
 				tuser.setLastLoginTime(new Date());
 				tuser.setLoginTime(new Date());
 				Torganization torganization = (Torganization)iTorganization.get(tuser.getTorganization().getToId());
-				System.out.println(torganization.getToName());
 				tuser.setTorganization(torganization);
-				
 				iTuser.save(tuser);
 			} catch (RuntimeException e) {
 				e.printStackTrace();
 			}
 		}
 		return ActionSupport.SUCCESS;
+	}
+	
+	public String get(){
+		log.debug("TuserAction--->get--->start");
+		tusers = iTuser.get(10);
+		for(int i = 0; i < tusers.size(); i++){
+			tusers.get(i).setTauths(null);
+			tusers.get(i).setTgroups(null);
+			tusers.get(i).setTlogs(null);
+			tusers.get(i).setTorganization(null);
+			tusers.get(i).setTroles(null);
+		}
+		return "tuserrole";
 	}
 
 	public Tuser getTuser() {
@@ -50,5 +63,13 @@ public class TuserAction extends BaseAction {
 
 	public void setTuser(Tuser tuser) {
 		this.tuser = tuser;
+	}
+
+	public List<Tuser> getTusers() {
+		return tusers;
+	}
+
+	public void setTusers(List<Tuser> tusers) {
+		this.tusers = tusers;
 	}
 }
