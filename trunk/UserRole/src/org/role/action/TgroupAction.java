@@ -34,6 +34,11 @@ public class TgroupAction extends BaseAction {
 //		while(i < 1000){
 		log.debug("TgroupAction--->get--->start");
 		tgroups = iTgroup.get(10);
+		for(int i = 0; i < tgroups.size(); i++){
+			tgroups.get(i).setTauths(null);
+			tgroups.get(i).setTroles(null);
+			tgroups.get(i).setTusers(null);
+		}
 //			log.debug(i);
 //			iTauth.get(41);
 //			iTorganization.get(41);
