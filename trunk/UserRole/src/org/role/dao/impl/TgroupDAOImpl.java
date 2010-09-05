@@ -9,7 +9,7 @@ import org.role.pojo.Tgroup;
 import org.springframework.stereotype.Repository;
 
 @Repository("tgroupDAO")
-public class TgroupDAOImpl extends DAOSupport implements TgroupDAO {
+public class TgroupDAOImpl extends DAOSupport<Tgroup> implements TgroupDAO {
 	public List<Tgroup> get(int count) {
 		Session session = super.getHibernateSession();
 		session.beginTransaction();
