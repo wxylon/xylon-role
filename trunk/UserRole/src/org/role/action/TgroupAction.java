@@ -30,16 +30,16 @@ public class TgroupAction extends BaseAction {
 	private Tgroup tgroup;
 	
 	public String get() throws Exception {
-		int i = 0;
-		while(i < 1000){
+//		int i = 0;
+//		while(i < 1000){
 			log.debug("TgroupAction--->get--->start");
 			tgroups = iTgroup.get(10);
-			log.debug(i);
-			iTauth.get(41);
-			iTorganization.get(41);
-			iTgroup.get(41);
-			i++;
-		}
+//			log.debug(i);
+//			iTauth.get(41);
+//			iTorganization.get(41);
+//			iTgroup.get(41);
+//			i++;
+//		}
 		return ActionSupport.SUCCESS;
 	}
 	
