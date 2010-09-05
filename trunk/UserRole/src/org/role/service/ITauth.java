@@ -2,9 +2,9 @@ package org.role.service;
 
 import java.util.List;
 
-import org.role.dao.base.DAO;
 import org.role.pojo.Tauth;
+import org.role.service.base.Service;
 
-public interface ITauth extends DAO{
+public interface ITauth extends Service<Tauth>{
 	public List<Tauth> get(int count);
 }
