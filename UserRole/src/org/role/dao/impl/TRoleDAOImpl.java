@@ -8,7 +8,7 @@ import org.role.pojo.Trole;
 import org.springframework.stereotype.Repository;
 
 @Repository("tRoleDAO")
-public class TRoleDAOImpl extends DAOSupport implements TRoleDAO {
+public class TRoleDAOImpl extends DAOSupport<Trole> implements TRoleDAO {
 
 	public List<Trole> get() {
 		String HQL = "FROM Trole";
