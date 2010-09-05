@@ -38,6 +38,7 @@
 	<package name="common" extends="admin">
 		<action name="tuserAction" class="tuserAction">
 			<result name="success">/page/index.jsp</result>
+			<result name="tuserrole">/page/tuserrole.jsp</result>
 		</action>
 	</package>
 
