@@ -12,7 +12,7 @@ import org.role.service.base.ServiceSupport;
 import org.springframework.stereotype.Repository;
 
 @Repository("iTRole")
-public class TRoleImpl extends ServiceSupport implements ITRole {
+public class TRoleImpl extends ServiceSupport<Trole> implements ITRole {
 	
 	@Resource TRoleDAO tRoleDAO;
 	

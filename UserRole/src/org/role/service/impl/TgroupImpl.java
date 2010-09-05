@@ -11,7 +11,7 @@ import org.role.service.base.ServiceSupport;
 import org.springframework.stereotype.Repository;
 
 @Repository("iTgroup")
-public class TgroupImpl extends ServiceSupport implements ITgroup {
+public class TgroupImpl extends ServiceSupport<Tgroup> implements ITgroup {
 	
 	@Resource TgroupDAO tgroupDAO ;
 	

@@ -6,13 +6,12 @@ import javax.annotation.Resource;
 import org.role.dao.TauthDAO;
 import org.role.dao.base.DAO;
 import org.role.pojo.Tauth;
-import org.role.pojo.Trole;
 import org.role.service.ITauth;
 import org.role.service.base.ServiceSupport;
 import org.springframework.stereotype.Repository;
 
 @Repository("iTauth")
-public class TauthImpl extends ServiceSupport implements ITauth {
+public class TauthImpl extends ServiceSupport<Tauth> implements ITauth {
 	
 	@Resource TauthDAO tauthDAO ;
 	
