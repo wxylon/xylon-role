@@ -1,9 +1,7 @@
 package org.role.dao;
 
-import java.util.List;
-
 import org.role.dao.base.DAO;
-import org.role.pojo.Trole;
+import org.role.pojo.Tlog;
 
-public interface TlogDAO extends DAO{
+public interface TlogDAO extends DAO<Tlog>{
 }
