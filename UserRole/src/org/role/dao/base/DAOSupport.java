@@ -17,7 +17,7 @@ public class DAOSupport<T> extends HibernateDaoSupport implements DAO<T>{
 	}
 
 	public Session getHibernateSession(){
-		return super.getSessionFactory().getCurrentSession();
+		return super.getSession();
 	}
 
 	public void delete(Serializable... entityids) {
