@@ -5,7 +5,9 @@
   <body style="margin-left: 350px;margin-top: 200px;">
   	<div><a href="/">首页</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;用户角色管理</div></br></br>
   	<select name="userid" size="10">
-  		<option>dd</option>
+  		<c:forEach items="${tusers}" var="tuser">
+  			<option value="${tuser.tuId}">${tuser.userName}</option>
+  		</c:forEach>
   	</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   	<select name="roleid" size="10">
   		<option>dd</option>
