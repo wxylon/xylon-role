@@ -9,6 +9,7 @@ public class TestImagePanel {
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
+		frame.setBounds(200, 200, 200, 200);
 		ImageFactory imageFactory = ImageFactory.getInstance();
 		frame.setContentPane(new ImagePanel(imageFactory.getImageIcon("images/gameover.gif")));
 		frame.setVisible(true);
