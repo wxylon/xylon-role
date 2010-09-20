@@ -9,6 +9,10 @@ package game.henry.game;
 import java.awt.*;
 import javax.swing.*;
 
+/**
+ * 此类描述的是： 游戏区图片
+ * @version 创建时间：Sep 20, 2010 11:38:47 PM
+ */
 public class LocationImage extends ImageIcon implements Cloneable {
 	
 	private float yPos;
