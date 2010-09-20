@@ -11,7 +11,7 @@ import java.awt.*;
  * @author Steve Wilson
  */
 public class GreenMetalTheme extends DefaultMetalTheme {
-	private Font font = new Font("Dialog", 0, 12);
+	private Font font = new Font("Dialog", 9, 12);
 	private final FontUIResource fontuiresource = new FontUIResource(font);
 
 	public String getName() {

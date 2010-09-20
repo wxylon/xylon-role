@@ -13,6 +13,10 @@ import game.javaman.image.*;
 import java.util.*;
 import game.javaman.GameModel;
 
+/**
+ * 此类描述的是：游戏区
+ * @version 创建时间：Sep 20, 2010 11:31:25 PM
+ */
 public class GamePaintPanel extends PaintPanel {
 	LImageManager locationImageManager = LImageManager.getInstance();
 	GameModel model;
