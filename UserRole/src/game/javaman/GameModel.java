@@ -12,10 +12,10 @@ import game.javaman.sound.*;
  * @version 1.0
  */
 public class GameModel extends GameLoop implements IModel, IConstant {
+	
 	boolean pause;
 	// -------------------
-	private GameObjectBuilder gameObjectBuilder = GameObjectBuilder
-			.getInstance();
+	private GameObjectBuilder gameObjectBuilder = GameObjectBuilder.getInstance();
 	private GameConfigure gameconfig = GameConfigure.getInstance();
 	// ----------------------------游戏对像
 	private BoardManager bm; // 所有board跳板
