@@ -1,180 +1,177 @@
 package game.javaman;
 
 import java.io.*;
+
 /**
-  * @author henry
-  * www.riabbs.com
-  *
-  * @version 1.0
+ * @author henry www.riabbs.com
+ * 
+ * @version 1.0
  */
-public class GameConfigure
-    implements Serializable {
-  private static String configurefilename = "jman.conf";
-  private boolean musicEnable = false;
-  private int level;
-  private int leftKeyCode;
-  private int rightKeyCode;
-  private int pausekeyCode;
-  private int language; //1 为中文，2为英文
-  private GameLevel[] glevel;
-  transient private static GameConfigure instance = null;
-  public static synchronized GameConfigure getInstance() {
-    if (instance == null) {
-      File configfile = new File(configurefilename);
-      if (configfile.exists()) {
-        try {
-          ObjectInputStream ois = new ObjectInputStream(new
-              FileInputStream(configfile));
-          instance = (GameConfigure) ois.readObject();
-        }
-        catch (Exception ex) {
-          instance = new GameConfigure();
-          return instance;
-        }
-      }
-      else {
-        instance = new GameConfigure();
-      }
-    }
-    return instance;
-  }
+public class GameConfigure implements Serializable {
+	private static String configurefilename = "jman.conf";
+	private boolean musicEnable = false;
+	private int level;
+	private int leftKeyCode;
+	private int rightKeyCode;
+	private int pausekeyCode;
+	private int language; // 1 为中文，2为英文
+	private GameLevel[] glevel;
+	transient private static GameConfigure instance = null;
 
-  public void saveConfigure() {
-    try {
-      ObjectOutputStream objectoutputStream = new ObjectOutputStream(new
-          FileOutputStream(configurefilename));
-      objectoutputStream.writeObject(instance);
-      objectoutputStream.close();
-    }
-    catch (IOException ex) {
-      ex.printStackTrace();
-    }
-  }
+	public static synchronized GameConfigure getInstance() {
+		if (instance == null) {
+			File configfile = new File(configurefilename);
+			if (configfile.exists()) {
+				try {
+					ObjectInputStream ois = new ObjectInputStream(
+							new FileInputStream(configfile));
+					instance = (GameConfigure) ois.readObject();
+				} catch (Exception ex) {
+					instance = new GameConfigure();
+					return instance;
+				}
+			} else {
+				instance = new GameConfigure();
+			}
+		}
+		return instance;
+	}
 
-  public void defaultKeyOption() {
-    leftKeyCode = 37;
-    rightKeyCode = 39;
-    pausekeyCode = 10;
-  }
+	public void saveConfigure() {
+		try {
+			ObjectOutputStream objectoutputStream = new ObjectOutputStream(
+					new FileOutputStream(configurefilename));
+			objectoutputStream.writeObject(instance);
+			objectoutputStream.close();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
 
-  private GameConfigure() {
-    leftKeyCode = 37;
-    rightKeyCode = 39;
-    pausekeyCode = 10;
-    language = 1;
-    level = 0;
-    glevel = new GameLevel[3];
+	public void defaultKeyOption() {
+		leftKeyCode = 37;
+		rightKeyCode = 39;
+		pausekeyCode = 10;
+	}
 
-    glevel[0] = new GameLevel();
-    glevel[0].aYJman = 0.0005f;
-    glevel[0].vXJman = 0.2f;
-    glevel[0].vYBoard = -0.05f;
-    glevel[0].vYBackGround = -0.02f;
+	private GameConfigure() {
+		leftKeyCode = 37;
+		rightKeyCode = 39;
+		pausekeyCode = 10;
+		language = 1;
+		level = 0;
+		glevel = new GameLevel[3];
 
-    glevel[1] = new GameLevel();
-    glevel[1].aYJman = 0.0005f;
-    glevel[1].vXJman = 0.2f;
-    glevel[1].vYBoard = -0.08f;
-    glevel[1].vYBackGround = -0.02f;
+		glevel[0] = new GameLevel();
+		glevel[0].aYJman = 0.0005f;
+		glevel[0].vXJman = 0.2f;
+		glevel[0].vYBoard = -0.05f;
+		glevel[0].vYBackGround = -0.02f;
 
-    glevel[2] = new GameLevel();
-    glevel[2].aYJman = 0.0005f;
-    glevel[2].vXJman = 0.2f;
-    glevel[2].vYBoard = -0.12f;
-    glevel[2].vYBackGround = -0.02f;
+		glevel[1] = new GameLevel();
+		glevel[1].aYJman = 0.0005f;
+		glevel[1].vXJman = 0.2f;
+		glevel[1].vYBoard = -0.08f;
+		glevel[1].vYBackGround = -0.02f;
 
-  }
+		glevel[2] = new GameLevel();
+		glevel[2].aYJman = 0.0005f;
+		glevel[2].vXJman = 0.2f;
+		glevel[2].vYBoard = -0.12f;
+		glevel[2].vYBackGround = -0.02f;
 
-  public float getAYJman() {
-    return glevel[level].aYJman;
-  }
+	}
 
-  public float getVXJman() {
-    return glevel[level].vXJman;
-  }
+	public float getAYJman() {
+		return glevel[level].aYJman;
+	}
 
-  public float getVYBoard() {
-    return glevel[level].vYBoard;
-  }
+	public float getVXJman() {
+		return glevel[level].vXJman;
+	}
 
-  public float getVYBackGround() {
-    return glevel[level].vYBackGround;
-  }
+	public float getVYBoard() {
+		return glevel[level].vYBoard;
+	}
 
-  private void readObject(ObjectInputStream ois) throws
-      ClassNotFoundException, IOException {
-    ois.defaultReadObject();
-  }
+	public float getVYBackGround() {
+		return glevel[level].vYBackGround;
+	}
 
-  private void writeObject(ObjectOutputStream oos) throws IOException {
-    oos.defaultWriteObject();
-  }
+	private void readObject(ObjectInputStream ois)
+			throws ClassNotFoundException, IOException {
+		ois.defaultReadObject();
+	}
 
-  public boolean isMusicEnable() {
-    return musicEnable;
-  }
+	private void writeObject(ObjectOutputStream oos) throws IOException {
+		oos.defaultWriteObject();
+	}
 
-  public void setMusicEnable(boolean musicEnable) {
-    this.musicEnable = musicEnable;
-  }
+	public boolean isMusicEnable() {
+		return musicEnable;
+	}
 
-  public int getLevel() {
-    return level;
-  }
+	public void setMusicEnable(boolean musicEnable) {
+		this.musicEnable = musicEnable;
+	}
 
-  public void setLevel(int level) {
-    this.level = level;
-  }
+	public int getLevel() {
+		return level;
+	}
 
-  public int getLeftKeyCode() {
-    return leftKeyCode;
-  }
+	public void setLevel(int level) {
+		this.level = level;
+	}
 
-  public void setLeftKeyCode(int leftKeyCode) {
-    this.leftKeyCode = leftKeyCode;
-  }
+	public int getLeftKeyCode() {
+		return leftKeyCode;
+	}
 
-  public int getRightKeyCode() {
-    return rightKeyCode;
-  }
+	public void setLeftKeyCode(int leftKeyCode) {
+		this.leftKeyCode = leftKeyCode;
+	}
 
-  public void setRightKeyCode(int rightKeyCode) {
-    this.rightKeyCode = rightKeyCode;
-  }
+	public int getRightKeyCode() {
+		return rightKeyCode;
+	}
 
-  public int getLanguage() {
-    return language;
-  }
+	public void setRightKeyCode(int rightKeyCode) {
+		this.rightKeyCode = rightKeyCode;
+	}
 
-  public void setLanguage(int language) {
-    this.language = language;
-  }
+	public int getLanguage() {
+		return language;
+	}
 
-  public int getPausekeyCode() {
-    return pausekeyCode;
-  }
+	public void setLanguage(int language) {
+		this.language = language;
+	}
 
-  public void setPausekeyCode(int pausekeyCode) {
-    this.pausekeyCode = pausekeyCode;
-  }
+	public int getPausekeyCode() {
+		return pausekeyCode;
+	}
 
-  private class GameLevel
-      implements Serializable {
-    float vXJman;
-    float aYJman;
-    float vYBoard;
-    float vYBackGround;
-    public GameLevel() {
+	public void setPausekeyCode(int pausekeyCode) {
+		this.pausekeyCode = pausekeyCode;
+	}
 
-    }
+	private class GameLevel implements Serializable {
+		float vXJman;
+		float aYJman;
+		float vYBoard;
+		float vYBackGround;
 
-    private void readObject(ObjectInputStream ois) throws
-        ClassNotFoundException, IOException {
-      ois.defaultReadObject();
-    }
+		public GameLevel() {
 
-    private void writeObject(ObjectOutputStream oos) throws IOException {
-      oos.defaultWriteObject();
-    }
-  }
+		}
+
+		private void readObject(ObjectInputStream ois)
+				throws ClassNotFoundException, IOException {
+			ois.defaultReadObject();
+		}
+
+		private void writeObject(ObjectOutputStream oos) throws IOException {
+			oos.defaultWriteObject();
+		}
+	}
 }

@@ -1,4 +1,5 @@
 package game.henry.game;
+
 /**
  * @author henry
  * www.riabbs.com
@@ -8,43 +9,44 @@ package game.henry.game;
 import java.awt.*;
 import javax.swing.*;
 
-public class LocationImage
-    extends ImageIcon implements Cloneable {
-  private float yPos;
-  private float xPos;
-  public LocationImage() {
-  }
+public class LocationImage extends ImageIcon implements Cloneable {
+	
+	private float yPos;
+	private float xPos;
 
-  public LocationImage(Image im) {
-    super(im);
-    xPos = 0;
-    yPos = 0;
-  }
+	public LocationImage() {
+	}
 
-  public LocationImage(Image im, float x, float y) {
-//    this.image = im;
-    super(im);
-    xPos = x;
-    yPos = y;
-  }
+	public LocationImage(Image im) {
+		super(im);
+		xPos = 0;
+		yPos = 0;
+	}
 
-  public float getXPos() {
-    return xPos;
-  }
+	public LocationImage(Image im, float x, float y) {
+		// this.image = im;
+		super(im);
+		xPos = x;
+		yPos = y;
+	}
 
-  public void setXPos(float xPos) {
-    this.xPos = xPos;
-  }
+	public float getXPos() {
+		return xPos;
+	}
 
-  public float getYPos() {
-    return yPos;
-  }
+	public void setXPos(float xPos) {
+		this.xPos = xPos;
+	}
 
-  public void setYPos(float yPos) {
-    this.yPos = yPos;
-  }
+	public float getYPos() {
+		return yPos;
+	}
 
-  public Object clone() {
-    return new LocationImage(this.getImage(), this.xPos, this.yPos);
-  }
+	public void setYPos(float yPos) {
+		this.yPos = yPos;
+	}
+
+	public Object clone() {
+		return new LocationImage(this.getImage(), this.xPos, this.yPos);
+	}
 }

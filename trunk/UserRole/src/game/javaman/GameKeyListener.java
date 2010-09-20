@@ -10,6 +10,7 @@ import game.javaman.ginterface.IModel;
  * @version 1.0
  */
 public class GameKeyListener implements KeyListener {
+	
 	GameConfigure gameconfigure = GameConfigure.getInstance();
 	GameModel gamemodel;
 	boolean leftpress = false;
