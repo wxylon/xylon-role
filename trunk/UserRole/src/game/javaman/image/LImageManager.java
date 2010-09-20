@@ -3,6 +3,10 @@ package game.javaman.image;
 import game.henry.game.*;
 import java.util.*;
 
+/**
+ * 此类描述的是：游戏区图片管理
+ * @version 创建时间：Sep 20, 2010 11:37:24 PM
+ */
 public class LImageManager {
 	ImageFactory images = ImageFactory.getInstance();
 	LocationImage[] locationImages = new LocationImage[60];
