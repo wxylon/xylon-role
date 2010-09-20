@@ -1,8 +1,6 @@
 package game.javaman;
 
-import java.awt.*;
 import java.awt.event.*;
-import game.javaman.ginterface.IModel;
 
 /**
  * @author henry www.riabbs.com
