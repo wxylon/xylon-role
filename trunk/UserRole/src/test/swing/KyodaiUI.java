@@ -1,4 +1,5 @@
 package test.swing;
+
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.*;
@@ -10,21 +11,21 @@ public class KyodaiUI
     implements ActionListener {
   public final static int ROW = 8;
   public final static int COLUMN = 8;
-  public static Color DarkColor = new Color(55, 77, 118); //��ɫ
-  public static Color LightColor = new Color(111, 146, 212); //��ɫ
+  public static Color DarkColor = new Color(55, 77, 118); //暗色
+  public static Color LightColor = new Color(111, 146, 212); //亮色
 
   Border border = BorderFactory.createBevelBorder(BevelBorder.LOWERED,
                                                   new Color(45, 92, 162),
                                                   new Color(43, 66, 97),
                                                   new Color(45, 92, 162),
                                                   new Color(84, 123, 200));
-  JButton about = new JButton("����");
+  JButton about = new JButton("关于");
 
   public KyodaiUI() {
     this.setSize(780, 500);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setResizable(false);
-    this.setTitle("ll��"); //���ñ���
+    this.setTitle("连连看"); //设置标题
     JPanel toolBar = new JPanel();
     toolBar.setBorder(border);
     toolBar.setPreferredSize(new Dimension(780, 48));
@@ -71,7 +72,7 @@ public class KyodaiUI
 
   public void actionPerformed(ActionEvent e) {
     if (e.getSource() == about) {
-      JOptionPane.showMessageDialog(this, "�ҵĴ���", "����",
+      JOptionPane.showMessageDialog(this, "我的大名", "关于",
                                     JOptionPane.INFORMATION_MESSAGE);
       return;
     }
@@ -83,7 +84,7 @@ public class KyodaiUI
       row = Math.round(offset / COLUMN);
       col = offset - row * COLUMN;
       JOptionPane.showMessageDialog(this, "ROW = " + row + ", COL = " + col,
-                                    "��ť",
+                                    "按钮",
                                     JOptionPane.INFORMATION_MESSAGE);
     }
   }
