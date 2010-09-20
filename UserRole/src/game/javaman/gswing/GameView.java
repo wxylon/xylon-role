@@ -9,6 +9,7 @@ package game.javaman.gswing;
 import javax.swing.plaf.metal.*;
 import java.awt.*;
 import javax.swing.*;
+
 import game.henry.game.*;
 import game.javaman.image.ImageFactory;
 import game.javaman.*;
@@ -139,5 +140,9 @@ public class GameView extends JFrame implements IGameControl {
 		mainPaintPanel.remove(pausepanel);
 		mainPaintPanel.repaint();
 	}
-
+	
+	public static void main(String[] args) {
+		JFrame frame = new GameView(new GameModel());
+		frame.setVisible(true);
+	}
 }
