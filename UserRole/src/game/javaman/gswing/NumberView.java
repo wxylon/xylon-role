@@ -10,7 +10,10 @@ import javax.swing.*;
 import game.henry.game.*;
 import game.javaman.image.ImageFactory;
 import game.javaman.ginterface.*;
-
+/**
+ * 此类描述的是：关次对应的图片
+ * @version 创建时间：Sep 20, 2010 10:57:22 PM
+ */
 public class NumberView extends JPanel implements IFloorCountListener {
 	ImagePanel[] numbers = new ImagePanel[4];
 
