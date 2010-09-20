@@ -4,6 +4,10 @@ import javax.swing.ImageIcon;
 import java.util.*;
 import java.awt.*;
 
+/**
+ * 此类描述的是：图片工厂类
+ * @version 创建时间：Sep 20, 2010 6:04:42 PM
+ */
 public class ImageFactory {
 	HashMap hashmap = new HashMap();
 	private static ImageFactory instance = new ImageFactory();
