@@ -73,21 +73,15 @@ public class GameView extends JFrame implements IGameControl {
 	}
 
 	private void initCreate() {
-		gameoverPanel = new ImagePanel(imageFactory
-				.getImageIcon("images/gameover.gif"));
-		pausepanel = new ImagePanel(imageFactory
-				.getImageIcon("images/pause.gif"));
-		gameBackground = new ImagePanel(imageFactory
-				.getImageIcon("images/backgroud.gif"));
-		lifewordpanel = new ImagePanel(imageFactory
-				.getImageIcon("images/life/lifeword.gif"));
+		gameoverPanel = new ImagePanel(imageFactory.getImageIcon("images/gameover.gif"));
+		pausepanel = new ImagePanel(imageFactory.getImageIcon("images/pause.gif"));
+		gameBackground = new ImagePanel(imageFactory.getImageIcon("images/backgroud.gif"));
+		lifewordpanel = new ImagePanel(imageFactory.getImageIcon("images/life/lifeword.gif"));
 		floorCountpanel = new NumberView(0);
 		lifeview = new LifeView(12);
 		mainPaintPanel = new GamePaintPanel(gamemodel);
-		word1panel = new ImagePanel(imageFactory
-				.getImageIcon("images/word1.gif"));
-		word2panel = new ImagePanel(imageFactory
-				.getImageIcon("images/word2.gif"));
+		word1panel = new ImagePanel(imageFactory.getImageIcon("images/word1.gif"));
+		word2panel = new ImagePanel(imageFactory.getImageIcon("images/word2.gif"));
 
 		lifewordpanel.setPosition(90, 18);
 		word1panel.setPosition(196, 16);
