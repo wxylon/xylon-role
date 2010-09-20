@@ -10,6 +10,10 @@ import java.awt.*;
 import java.awt.geom.*;
 import javax.swing.*;
 
+/**
+ * 此类描述的是： 绘制图片 panel 
+ * @version 创建时间：Sep 20, 2010 5:54:26 PM
+ */
 public class ImagePanel extends JPanel {
 
 	private Point2D.Double position;
