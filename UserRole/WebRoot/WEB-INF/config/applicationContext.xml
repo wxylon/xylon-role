@@ -80,10 +80,10 @@
 	</aop:config>
 	<tx:advice id="txAdvice" transaction-manager="txManager">
 		<tx:attributes>
-			<tx:method name="get*" read-only="true" propagation="NOT_SUPPORTED" />
-			<tx:method name="list*" read-only="true" propagation="NOT_SUPPORTED" />
-			<tx:method name="save" no-rollback-for="java.lang.RuntimeException" />
-			<tx:method name="*" />
+			<tx:method name="get*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="list*" read-only="true" propagation="REQUIRED" />
+			<tx:method name="save" no-rollback-for="java.lang.RuntimeException"  propagation="REQUIRED"/>
+			<tx:method name="*" propagation="REQUIRED" read-only="true"/>
 		</tx:attributes>
 	</tx:advice>
 	</beans>
