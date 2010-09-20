@@ -42,7 +42,6 @@ public class ImagePanel extends JPanel {
 		// setOpaque(true);
 		position = new Point2D.Double(0, 0);
 		setLocation(0, 0);
-
 	}
 
 	public void paintComponent(Graphics g) {
