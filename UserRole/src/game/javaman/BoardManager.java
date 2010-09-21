@@ -5,9 +5,8 @@ import game.javaman.gobject.Board;
 import game.javaman.ginterface.IFloorCountListener;
 
 /**
- * @author henry www.riabbs.com
- * 
- * @version 1.0
+ * 此类描述的是：跳板管理  
+ * @version 创建时间：Sep 21, 2010 10:44:59 AM
  */
 public class BoardManager {
 	// A---平板 B--左移 c--右移 d--翻板 e--上弹板 f--针板 共生成9个
@@ -21,7 +20,9 @@ public class BoardManager {
 	GameConfigure gameconfigure = GameConfigure.getInstance();
 	GameObjectBuilder gameObjectBuilder = GameObjectBuilder.getInstance();
 	IFloorCountListener floorCountListener;
+	//当前关次
 	int currentFloor = 0;
+	//当前跳板
 	int currentBoard = 0;
 
 	public BoardManager() {

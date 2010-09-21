@@ -3,9 +3,8 @@ package game.javaman;
 import java.io.*;
 
 /**
- * @author henry www.riabbs.com
- * 
- * @version 1.0
+ * 此类描述的是：游戏设置
+ * @version 创建时间：Sep 21, 2010 9:41:21 AM
  */
 public class GameConfigure implements Serializable {
 	private static String configurefilename = "jman.conf";
