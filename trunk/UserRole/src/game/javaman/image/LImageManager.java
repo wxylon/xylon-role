@@ -160,8 +160,7 @@ public class LImageManager {
 	}
 
 	public LocationImage getSpriteImage(Sprite sprite) {
-		LocationImage li = (LocationImage) (getLocationImage(sprite
-				.getCurrentFrameNum()).clone());
+		LocationImage li = (LocationImage) (getLocationImage(sprite.getCurrentFrameNum()).clone());
 		li.setXPos(sprite.getXPos() + li.getXPos());
 		li.setYPos(sprite.getYPos() + li.getYPos());
 		return li;
