@@ -21,7 +21,6 @@ public class MainApp {
 
 	// 菜单控制器在GameView中包含了
 	public MainApp() {
-		log.debug("MainApp main start");
 		gamemodel = new GameModel();
 		gameview = new GameView(gamemodel);
 		gameKeyboardControl = new GameKeyListener();
