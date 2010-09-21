@@ -30,6 +30,7 @@ public class ModelObject {
 	}
 
 	public boolean isPointContains(float x, float y) {
+//		System.out.println(x+"--->"+xPos+"--->"+y+"--->"+yPos+"--->"+width+"--->"+height);
 		return (x > xPos && x < (xPos + width) && y > yPos && y < (yPos + width));
 	}
 
