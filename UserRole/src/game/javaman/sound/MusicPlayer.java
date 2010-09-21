@@ -4,9 +4,8 @@ import java.applet.*;
 import game.javaman.GameConfigure;
 
 /**
- * @author henry www.riabbs.com
- * 
- * @version 1.0
+ * 此类描述的是： 音乐播放类
+ * @version 创建时间：Sep 21, 2010 4:40:32 PM
  */
 public class MusicPlayer {
 	
