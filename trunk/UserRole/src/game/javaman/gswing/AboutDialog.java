@@ -11,6 +11,10 @@ import javax.swing.*;
 import java.awt.event.*;
 import game.javaman.image.*;
 
+/**
+ * 此类描述的是：关于界面  
+ * @version 创建时间：Sep 21, 2010 10:23:58 AM
+ */
 public class AboutDialog extends JDialog {
 	JPanel panel1 = new JPanel();
 	JLabel jLabel1 = new JLabel();
