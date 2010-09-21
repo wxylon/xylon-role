@@ -10,7 +10,7 @@ abstract public class GameLoop {
 	boolean loopPause;
 	long startTime;
 	long currTime;
-	boolean paintting = true;
+//	boolean paintting = true;
 
 	int framePerSec = 0;
 
