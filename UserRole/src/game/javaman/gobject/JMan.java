@@ -9,6 +9,10 @@ package game.javaman.gobject;
 import game.henry.game.*;
 import game.javaman.ginterface.*;
 
+/**
+ * 此类描述的是：游戏中小人  
+ * @version 创建时间：Sep 21, 2010 2:08:15 PM
+ */
 public class JMan extends Sprite {
 	Board currentLocation;
 	Animation leftAnimation;
@@ -28,6 +32,7 @@ public class JMan extends Sprite {
 
 	Animation stopAnimation;
 	Animation bloodStopAnimation;
+	
 	int life = 12;
 	int inblood;
 
