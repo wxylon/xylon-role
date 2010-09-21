@@ -16,22 +16,6 @@ public class Sprite extends ModelObject implements TimeUpdate {
 	public Sprite() {
 	}
 
-	public float getVX() {
-		return vX;
-	}
-
-	public void setVX(float vX) {
-		this.vX = vX;
-	}
-
-	public float getVY() {
-		return vY;
-	}
-
-	public void setVY(float vY) {
-		this.vY = vY;
-	}
-
 	public void play() {
 		animation.play();
 	}
@@ -74,5 +58,21 @@ public class Sprite extends ModelObject implements TimeUpdate {
 
 	public void setAY(float aY) {
 		this.aY = aY;
+	}
+	
+	public float getVX() {
+		return vX;
+	}
+
+	public void setVX(float vX) {
+		this.vX = vX;
+	}
+
+	public float getVY() {
+		return vY;
+	}
+
+	public void setVY(float vY) {
+		this.vY = vY;
 	}
 }
