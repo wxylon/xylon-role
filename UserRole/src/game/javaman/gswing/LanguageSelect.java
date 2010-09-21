@@ -1,9 +1,8 @@
 package game.javaman.gswing;
 
 /**
- * @author henry www.riabbs.com
- * 
- * @version 1.0
+ * 此类描述的是： 菜单栏显示标题工具 
+ * @version 创建时间：Sep 21, 2010 10:02:45 AM
  */
 public class LanguageSelect {
 	public final static int CHINA = 1;

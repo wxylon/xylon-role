@@ -1,11 +1,14 @@
 package game.javaman.gswing;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 import game.javaman.ginterface.*;
 import game.javaman.*;
 
+/**
+ * 此类描述的是：菜单栏
+ * @version 创建时间：Sep 21, 2010 9:32:48 AM
+ */
 public class MenuManager {
 
 	private JMenuBar menuBar = new JMenuBar();
@@ -16,7 +19,7 @@ public class MenuManager {
 	private JMenu language = new JMenu();
 	private JMenu helpmenu = new JMenu();
 
-	// ----------------------------------------
+	// ----------------------------------------gamemenu
 	private JMenuItem newGameItem = new JMenuItem();
 	private JRadioButtonMenuItem easyLevel = new JRadioButtonMenuItem();
 	private JRadioButtonMenuItem middelLevel = new JRadioButtonMenuItem();
@@ -24,37 +27,34 @@ public class MenuManager {
 	private ButtonGroup levelButtonGroup = new ButtonGroup();
 	private JMenuItem exitGameItem = new JMenuItem();
 
-	// ----------------------------------------
+	// ----------------------------------------optionmenu
 	private JCheckBoxMenuItem musicEnableItem = new JCheckBoxMenuItem();
 	private JMenuItem keycontrol = new JMenuItem();
 
-	// -----------------------------------------
+	// -----------------------------------------language
 	private ButtonGroup languageGroup = new ButtonGroup();
 	private JRadioButtonMenuItem chinaRB = new JRadioButtonMenuItem();
 	private JRadioButtonMenuItem englishRB = new JRadioButtonMenuItem();
 
-	// --------------------------------------------
+	// --------------------------------------------helpmenu
 	private JMenuItem aboutItme = new JMenuItem();
 
-	// -----------------------------------
-
+	// -----------------------------------gamemenu 监听
 	private ActionListener newGameItemListener;
 	private ActionListener easylevelListener;
 	private ActionListener middlelevelListener;
 	private ActionListener hardlevelListener;
 	private ActionListener exitGameItemListener;
-
-	// ---------------
-
+	
+	// ---------------optionmenu监听
 	private ActionListener musicEnableItemListener;
 	private ActionListener keyboardControlListener;
 
-	// ----------------
-
+	// ----------------language 监听
 	private ActionListener englishRBListener;
 	private ActionListener chinaRBlistener;
 
-	// -------------
+	// -------------helpmenu 监听
 	private ActionListener aboutItmeListener;
 
 	// -----------------要控制的模型对像
@@ -70,11 +70,14 @@ public class MenuManager {
 		initStatus();
 	}
 
+	/**
+	 * 此方法描述的是：初始化 状态
+	 * @version 创建时间：Sep 21, 2010 10:13:14 AM 
+	 * void
+	 */
 	private void initStatus() {
-		englishRB
-				.setSelected(gameconfigure.getLanguage() == LanguageSelect.ENGLISH);
-		chinaRB
-				.setSelected(gameconfigure.getLanguage() == LanguageSelect.CHINA);
+		englishRB.setSelected(gameconfigure.getLanguage() == LanguageSelect.ENGLISH);
+		chinaRB.setSelected(gameconfigure.getLanguage() == LanguageSelect.CHINA);
 		easyLevel.setSelected(gameconfigure.getLevel() == 0);
 		middelLevel.setSelected(gameconfigure.getLevel() == 1);
 		hardLevel.setSelected(gameconfigure.getLevel() == 2);
@@ -172,6 +175,11 @@ public class MenuManager {
 
 	}
 
+	/**
+	 * 此方法描述的是：初始化 menu
+	 * @version 创建时间：Sep 21, 2010 10:10:05 AM 
+	 * void
+	 */
 	private void initMenuText() {
 		// --------------总菜单
 		str.setLanguage(gameconfigure.getLanguage());
@@ -183,7 +191,7 @@ public class MenuManager {
 		language.setMnemonic('L');
 		helpmenu.setText(str.getString(11)); // 帮助
 		helpmenu.setMnemonic('H');
-		// ----------------------游戏子菜单
+		// ----------------------游戏 子菜单
 		newGameItem.setText(str.getString(2)); // 新游戏
 		newGameItem.setMnemonic('N');
 
@@ -197,18 +205,23 @@ public class MenuManager {
 		hardLevel.setMnemonic('H');
 		exitGameItem.setText(str.getString(3)); // 退出
 		exitGameItem.setMnemonic('X');
-		// ----------------------选项子菜单
+		// ----------------------选项 子菜单
 		musicEnableItem.setText(str.getString(9)); // music
 		musicEnableItem.setMnemonic('M');
+		keycontrol.setText(str.getString(8));
 		// ----------------------语言子菜单
 		englishRB.setText(str.getString(6));
 		chinaRB.setText(str.getString(5));
-		keycontrol.setText(str.getString(8));
 
 		// --------------关于
 		aboutItme.setText(str.getString(12));
 	}
 
+	/**
+	 * 此方法描述的是：布局初始化 menu
+	 * @version 创建时间：Sep 21, 2010 10:10:36 AM 
+	 * void
+	 */
 	private void composeMenu() {
 		menuBar.add(gamemenu);
 		menuBar.add(optionmenu);
