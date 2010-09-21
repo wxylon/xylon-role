@@ -16,6 +16,33 @@ public class ModelObject {
 	public ModelObject() {
 	}
 
+	public boolean isCollide(ModelObject modelObject) {
+		return (this.isContainsAPoint(modelObject) || modelObject
+				.isContainsAPoint(this));
+	}
+
+	private boolean isContainsAPoint(ModelObject modelObject) {
+		// boolean iscollide=false;
+		return (modelObject.isPointContains(xPos, yPos)
+				|| modelObject.isPointContains(xPos + width, yPos)
+				|| modelObject.isPointContains(xPos, yPos + height) || modelObject
+				.isPointContains(xPos + width, yPos + height));
+	}
+
+	public boolean isPointContains(float x, float y) {
+		return (x > xPos && x < (xPos + width) && y > yPos && y < (yPos + width));
+	}
+
+	// 并不想使用clone
+	public ModelObject getModelObjectCopy() {
+		ModelObject mo = new ModelObject();
+		mo.setHeight(this.getHeight());
+		mo.setWidth(this.getWidth());
+		mo.setXPos(this.getXPos());
+		mo.setYPos(this.getYPos());
+		return mo;
+	}
+	
 	public float getXPos() {
 		return xPos;
 	}
@@ -46,32 +73,5 @@ public class ModelObject {
 
 	public void setHeight(float height) {
 		this.height = height;
-	}
-
-	public boolean isCollide(ModelObject modelObject) {
-		return (this.isContainsAPoint(modelObject) || modelObject
-				.isContainsAPoint(this));
-	}
-
-	private boolean isContainsAPoint(ModelObject modelObject) {
-		// boolean iscollide=false;
-		return (modelObject.isPointContains(xPos, yPos)
-				|| modelObject.isPointContains(xPos + width, yPos)
-				|| modelObject.isPointContains(xPos, yPos + height) || modelObject
-				.isPointContains(xPos + width, yPos + height));
-	}
-
-	public boolean isPointContains(float x, float y) {
-		return (x > xPos && x < (xPos + width) && y > yPos && y < (yPos + width));
-	}
-
-	// 并不想使用clone
-	public ModelObject getModelObjectCopy() {
-		ModelObject mo = new ModelObject();
-		mo.setHeight(this.getHeight());
-		mo.setWidth(this.getWidth());
-		mo.setXPos(this.getXPos());
-		mo.setYPos(this.getYPos());
-		return mo;
 	}
 }
