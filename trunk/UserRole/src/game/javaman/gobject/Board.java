@@ -10,6 +10,7 @@ import game.javaman.sound.MusicPlayer;
  * @version 1.0
  */
 abstract public class Board extends Sprite implements IConstant {
+	//是否打开音乐
 	private boolean enableLoadMan = true;
 	protected MusicPlayer musicplayer = MusicPlayer.getInstance();
 
