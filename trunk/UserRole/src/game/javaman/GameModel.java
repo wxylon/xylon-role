@@ -69,17 +69,27 @@ public class GameModel extends GameLoop implements IModel, IConstant {
 
 	// 模板方法,被超类循环调用
 	public void updateModel(long elapsedTime) {
+		//背景面板动
 		background.update(elapsedTime);
+		//左边栏
 		leftboard.update(elapsedTime);
+		//右边栏
 		rightboard.update(elapsedTime);
+		//所有board跳板
 		bm.update(elapsedTime);
+		//小人
 		if (!gameEnd) {
 			jman.update(elapsedTime);
 		}
+		//检查
 		modelCheck();
 		paintListener.updatePaint();
 	}
-
+	/**
+	 * 此方法描述的是：检查
+	 * @version 创建时间：Sep 21, 2010 5:21:52 PM 
+	 * void
+	 */
 	private void modelCheck() {
 		Board currentLocation = jman.getCurrentLocation();
 		topBoardCheck(currentLocation);
