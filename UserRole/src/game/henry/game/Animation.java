@@ -1,9 +1,8 @@
 package game.henry.game;
 
 /**
- * @author henry www.riabbs.com
- * 
- * @version 1.0
+ * 此类描述的是： 动画 
+ * @version 创建时间：Sep 21, 2010 2:45:08 PM
  */
 public class Animation implements TimeUpdate {
 	
