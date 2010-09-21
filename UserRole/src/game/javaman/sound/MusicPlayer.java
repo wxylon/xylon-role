@@ -9,6 +9,7 @@ import game.javaman.GameConfigure;
  * @version 1.0
  */
 public class MusicPlayer {
+	
 	private AudioClip sA;
 	private AudioClip sBC;
 	private AudioClip sD;
@@ -73,6 +74,11 @@ public class MusicPlayer {
 			}
 		}
 
+	}
+	
+	public static void main(String[] args){
+		MusicPlayer musicPlayer = new MusicPlayer();
+		musicPlayer.playMusic(MusicPlayer.SA);
 	}
 
 }
