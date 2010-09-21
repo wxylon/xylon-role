@@ -6,8 +6,9 @@ package game.henry.game;
  * @version 1.0
  */
 abstract public class GameLoop {
-
+	//暂停
 	boolean loopPause;
+	//统计刷屏次数，？？是否关联关次？
 	int framePerSec = 0;
 
 	public GameLoop() {
@@ -27,7 +28,9 @@ abstract public class GameLoop {
 	 * void
 	 */
 	public void timeloop() {
+		//间隔刷新屏幕时间
 		final int TimeInterval = 10;
+		//移动时间
 		final int elapsedTime = 10; // 这不是精确的时间只是假设每次循环后经过了elapsedTime长的时间
 		try {
 			long loopstart = System.currentTimeMillis();
@@ -38,6 +41,7 @@ abstract public class GameLoop {
 					Thread.sleep(TimeInterval);
 					continue;
 				}
+				//待变化的panel
 				updateModel(elapsedTime);
 				Thread.sleep(TimeInterval);
 				framecout++; // 用于frame计数统计

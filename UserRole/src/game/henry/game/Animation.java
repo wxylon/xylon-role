@@ -91,4 +91,10 @@ public class Animation implements TimeUpdate {
 			this.endTime = endTime;
 		}
 	}
+	
+	public static void main(String[] args){
+		Animation animation = new Animation();
+		animation.addFrame(0);
+		animation.play();
+	}
 }
