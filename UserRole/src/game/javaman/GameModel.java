@@ -24,6 +24,8 @@ public class GameModel extends GameLoop implements IModel, IConstant {
 	private Sprite rightboard; // 右边界
 	private Sprite topboard; // 上针板
 	private JMan jman;
+	
+	//移动的距离
 	private float vXJman;
 	private float aYJman;
 	// --------------------------接受事件
@@ -32,6 +34,7 @@ public class GameModel extends GameLoop implements IModel, IConstant {
 	private MusicPlayer musicplayer = MusicPlayer.getInstance();
 	private IGameControl gameEventListener; // 游戏开始结束控制接口和通知事件使用了一个接口
 	PaintListener paintListener;
+	//游戏是否结束
 	private boolean gameEnd; // -----------------------------
 
 	public GameModel() {
@@ -197,43 +200,66 @@ public class GameModel extends GameLoop implements IModel, IConstant {
 		return topboard;
 	}
 
+	/**
+	 * 左移动
+	 */
 	public void leftMan() {
 		jman.setVX(-vXJman);
 	}
 
+	/**
+	 * 右移动
+	 */
 	public void rightMan() {
 		jman.setVX(vXJman);
 	}
 
+	/**
+	 * 停止
+	 */
 	public void stopMan() {
 		jman.setVX(0);
 	}
 
+	/**
+	 * 结束
+	 */
 	public void endGame() {
 		this.pauseLoop();
 		gameEnd = true;
 		gameEventListener.endGame();
 	}
 
+	/**
+	 * 暂停
+	 */
 	public void pauseGame() {
 		pause = true;
 		this.pauseLoop();
 		gameEventListener.pauseGame();
 	}
 
+	/**
+	 * 继续
+	 */
 	public void continueGame() {
 		pause = false;
 		this.continueLoop();
 		gameEventListener.continueGame();
 	}
 
+	/**
+	 * 开始
+	 */
 	public void startGame() {
 		gameEnd = false;
 		musicplayer.playMusic(musicplayer.SStart);
 		init();
 		gameEventListener.startGame(); // 重新初始化模型视图关系
 	}
-
+	/**
+	 * 退出
+	 */
 	public void exitGame() {
 		gameconfig.saveConfigure();
 		System.exit(0);

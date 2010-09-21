@@ -10,8 +10,11 @@ public class GameConfigure implements Serializable {
 	private static String configurefilename = "jman.conf";
 	private boolean musicEnable = false;
 	private int level;
+	//向左键
 	private int leftKeyCode;
+	//向右键
 	private int rightKeyCode;
+	//暂停键
 	private int pausekeyCode;
 	private int language; // 1 为中文，2为英文
 	private GameLevel[] glevel;
