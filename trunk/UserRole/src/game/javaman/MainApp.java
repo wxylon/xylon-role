@@ -2,6 +2,10 @@ package game.javaman;
 
 import game.javaman.gswing.*;
 import javax.swing.*;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import java.awt.event.*;
 
 /**
@@ -13,9 +17,11 @@ public class MainApp {
 	GameModel gamemodel;
 	GameView gameview;
 	GameKeyListener gameKeyboardControl;
+	private Log log = LogFactory.getLog(this.getClass());
 
 	// 菜单控制器在GameView中包含了
 	public MainApp() {
+		log.debug("MainApp main start");
 		gamemodel = new GameModel();
 		gameview = new GameView(gamemodel);
 		gameKeyboardControl = new GameKeyListener();
