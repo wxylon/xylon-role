@@ -1,11 +1,16 @@
 package game.henry.game;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * @author henry www.riabbs.com
  * 
  * @version 1.0
  */
 public class Animation implements TimeUpdate {
+	
+	private Log log = LogFactory.getLog(this.getClass());
 	
 	private AnimFrame[] frameArray = new AnimFrame[0];
 	private int currFrameIndex;
