@@ -22,7 +22,6 @@ public class BoardA extends Board {
 		jman.setAY(0);
 		jman.setCurrentLocation(this);
 		this.setEnableLoadMan(false);
-
 	}
 
 }
