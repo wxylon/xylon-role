@@ -16,6 +16,13 @@ public class Animation implements TimeUpdate {
 	public Animation() {
 	}
 
+	/**
+	 * 此方法描述的是：
+	 * @version 创建时间：Sep 25, 2010 9:18:14 AM
+	 * @param locationImageNum 图片
+	 * @param duration 时间间隔
+	 * void
+	 */
 	public void addFrame(int locationImageNum, long duration) {
 		totalDuration += duration;
 		AnimFrame animFrame = new AnimFrame(locationImageNum, totalDuration);

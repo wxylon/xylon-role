@@ -1,16 +1,18 @@
 package game.henry.game;
 
 /**
- * @author henry www.riabbs.com
- * 
- * @version 1.0
+ * 此类描述的是：  所有游戏运动对像的基类主要出于碰撞检查考虑
+ * 所有面板的基类
+ * @version 创建时间：Sep 25, 2010 9:34:58 AM
  */
-// 所有游戏运动对像的基类主要出于碰撞检查考虑
 public class ModelObject {
-	
+	//高度
 	private float height;
+	//宽度
 	private float width;
+	//横坐标
 	private float xPos;
+	//纵坐标
 	private float yPos;
 
 	public ModelObject() {
@@ -29,9 +31,12 @@ public class ModelObject {
 				.isPointContains(xPos + width, yPos + height));
 	}
 
+	/**
+	 * 此方法描述的是：指定的坐标是否在该面板范围内
+	 * @version 创建时间：Sep 25, 2010 9:37:06 AM
+	 */
 	public boolean isPointContains(float x, float y) {
-//		System.out.println(x+"--->"+xPos+"--->"+y+"--->"+yPos+"--->"+width+"--->"+height);
-		return (x > xPos && x < (xPos + width) && y > yPos && y < (yPos + width));
+		return (x > xPos && x < (xPos + width) && y > yPos && y < (yPos + height));
 	}
 
 	// 并不想使用clone
