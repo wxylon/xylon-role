@@ -10,7 +10,9 @@ public class Animation implements TimeUpdate {
 	private int currFrameIndex;
 	private long animTime;
 	private long totalDuration = 0;
+	//控制 borad 时候无限执行
 	private boolean loop = true;
+	//是否停止
 	private boolean stop = true;
 
 	public Animation() {
