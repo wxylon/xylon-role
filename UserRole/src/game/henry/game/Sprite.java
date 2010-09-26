@@ -12,9 +12,9 @@ public class Sprite extends ModelObject implements TimeUpdate {
 	//移动的距离Y
 	protected float vY;
 	protected long starttime;
-	//X 步长
+//	X 系统步长
 	protected float aX;
-	//Y 步长
+//	Y 系统步长
 	protected float aY;
 
 	public Sprite() {
@@ -25,17 +25,11 @@ public class Sprite extends ModelObject implements TimeUpdate {
 	}
 
 	public void update(long elapsedTime) {
-//		
+		
 		vX = vX + aX * elapsedTime;
 		vY = vY + aY * elapsedTime;
 		setXPos(getXPos() + vX * elapsedTime);
 		setYPos(getYPos() + vY * elapsedTime);
-		
-		System.out.println("elapsedTime:"+elapsedTime);
-		System.out.println("vX:"+vX);
-		System.out.println("vY:"+vY);
-		System.out.println("aX"+aX);
-		System.out.println("aY:"+aY);
 		animation.update(elapsedTime);
 	}
 
