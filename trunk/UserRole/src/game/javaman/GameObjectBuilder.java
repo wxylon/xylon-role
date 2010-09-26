@@ -26,6 +26,7 @@ public class GameObjectBuilder implements IConstant {
 		jman.setWidth(WIDTH_Jman);
 		jman.setHeight(HEIGHT_jMAN);
 		int timeinterval = 40;
+		//左转动作
 		Animation leftAnimation = new Animation();
 		leftAnimation.addFrame(33, timeinterval);
 		leftAnimation.addFrame(55, timeinterval);
@@ -35,6 +36,7 @@ public class GameObjectBuilder implements IConstant {
 		leftAnimation.play();
 		jman.setLeftAnimation(leftAnimation);
 
+		//左转掉血动作
 		Animation bloodLeftAnimation = new Animation(); // ---------
 		bloodLeftAnimation.addFrame(33, timeinterval); // 1
 		bloodLeftAnimation.addFrame(34, timeinterval); // b2
@@ -47,7 +49,7 @@ public class GameObjectBuilder implements IConstant {
 		bloodLeftAnimation.setLoop(true);
 		bloodLeftAnimation.play();
 		jman.setBloodLeftAnimation(bloodLeftAnimation);
-
+		//右转动作
 		Animation rightAnimation = new Animation();
 		rightAnimation.addFrame(44, timeinterval); // 1
 		rightAnimation.addFrame(46, timeinterval); // 2
@@ -56,7 +58,8 @@ public class GameObjectBuilder implements IConstant {
 		rightAnimation.setLoop(true);
 		rightAnimation.play();
 		jman.setRightAnimation(rightAnimation);
-
+		
+		//右转掉血动作
 		Animation bloodRightAnimation = new Animation();
 		bloodRightAnimation.addFrame(43, timeinterval); // b1
 		bloodRightAnimation.addFrame(46, timeinterval); // 2
@@ -69,7 +72,7 @@ public class GameObjectBuilder implements IConstant {
 		bloodRightAnimation.setLoop(true);
 		bloodRightAnimation.play();
 		jman.setBloodRightAnimation(bloodRightAnimation);
-
+		//左下跳
 		Animation leftDownAnimation = new Animation();
 		leftDownAnimation.addFrame(38, timeinterval);
 		leftDownAnimation.addFrame(40, timeinterval);
@@ -78,7 +81,8 @@ public class GameObjectBuilder implements IConstant {
 		leftDownAnimation.setLoop(true);
 		leftDownAnimation.play();
 		jman.setLeftDownAnimation(leftDownAnimation);
-
+		
+		//左下跳掉血
 		Animation bloodLeftDownAnimation = new Animation();
 		bloodLeftDownAnimation.addFrame(37, timeinterval); // b1
 		bloodLeftDownAnimation.addFrame(40, timeinterval); // 2
@@ -91,7 +95,8 @@ public class GameObjectBuilder implements IConstant {
 		bloodLeftDownAnimation.setLoop(true);
 		bloodLeftDownAnimation.play();
 		jman.setBloodLeftDownAnimation(bloodLeftDownAnimation);
-
+		
+		//右下跳
 		Animation rightDownAnimation = new Animation();
 		rightDownAnimation.addFrame(50, timeinterval);
 		rightDownAnimation.addFrame(52, timeinterval);
@@ -100,7 +105,8 @@ public class GameObjectBuilder implements IConstant {
 		rightDownAnimation.setLoop(true);
 		rightDownAnimation.play();
 		jman.setRightDownAnimation(rightDownAnimation);
-
+		
+		//右下跳掉血
 		Animation bloodRightDownAnimation = new Animation();
 		bloodRightDownAnimation.addFrame(49, timeinterval); // b1
 		bloodRightDownAnimation.addFrame(52, timeinterval); // 2
@@ -113,7 +119,7 @@ public class GameObjectBuilder implements IConstant {
 		bloodRightDownAnimation.setLoop(true);
 		bloodRightDownAnimation.play();
 		jman.setBloodRightDownAnimation(bloodRightDownAnimation);
-
+		//下跳
 		Animation downAnimation = new Animation();
 		downAnimation.addFrame(27, timeinterval);
 		downAnimation.addFrame(29, timeinterval);
@@ -122,7 +128,7 @@ public class GameObjectBuilder implements IConstant {
 		downAnimation.setLoop(true);
 		downAnimation.play();
 		jman.setDownAnimation(downAnimation);
-
+		//下跳掉血
 		Animation bloodDownAnimation = new Animation();
 		bloodDownAnimation.addFrame(26, timeinterval); // b1
 		bloodDownAnimation.addFrame(29, timeinterval); // 2
@@ -135,11 +141,13 @@ public class GameObjectBuilder implements IConstant {
 		bloodDownAnimation.setLoop(true);
 		bloodDownAnimation.play();
 		jman.setBloodDownAnimation(bloodDownAnimation);
-
+		
+		//结束
 		Animation stopAnimation = new Animation();
 		stopAnimation.addFrame(56);
 		jman.setStopAnimation(stopAnimation);
 
+		//掉血结束
 		Animation bloodStopAnimation = new Animation();
 		bloodStopAnimation.addFrame(56, timeinterval);
 		bloodStopAnimation.addFrame(57, timeinterval);

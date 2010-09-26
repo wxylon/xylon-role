@@ -25,8 +25,10 @@ public class GameModel extends GameLoop implements IModel, IConstant {
 	private Sprite topboard; // 上针板
 	private JMan jman;
 	
-	//移动的距离
+	//按键移动的距离
+	//水平
 	private float vXJman;
+	//垂直
 	private float aYJman;
 	// --------------------------接受事件
 	private IFloorCountListener floorCountListener;
