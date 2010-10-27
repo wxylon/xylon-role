@@ -62,8 +62,7 @@ import java.io.IOException;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
-public class TreeIconDemo extends JPanel 
-                          implements TreeSelectionListener {
+public class TreeIconDemo extends JPanel implements TreeSelectionListener {
     private JEditorPane htmlPane;
     private JTree tree;
     private URL helpURL;
