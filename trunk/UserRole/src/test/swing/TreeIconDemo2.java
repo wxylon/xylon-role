@@ -1,48 +1,5 @@
 package test.swing;
 
-/*
- * Copyright (c) 1995, 2008, Oracle and/or its affiliates. All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- *   - Redistributions of source code must retain the above copyright
- *     notice, this list of conditions and the following disclaimer.
- *
- *   - Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *
- *   - Neither the name of Oracle or the names of its
- *     contributors may be used to endorse or promote products derived
- *     from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
- * IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO,
- * THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
- * PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR
- * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
- * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
- * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
- * PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
- * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */ 
-/**
- * A 1.4 application that requires the following additional files:
- *   TreeDemoHelp.html
- *    arnold.html
- *    bloch.html
- *    chan.html
- *    jls.html
- *    swingtutorial.html
- *    tutorial.html
- *    tutorialcont.html
- *    vm.html
- */
-
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -65,9 +22,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Component;
 
-
-public class TreeIconDemo2 extends JPanel 
-                           implements TreeSelectionListener {
+public class TreeIconDemo2 extends JPanel implements TreeSelectionListener {
     private JEditorPane htmlPane;
     private JTree tree;
     private URL helpURL;
@@ -77,14 +32,12 @@ public class TreeIconDemo2 extends JPanel
         super(new GridLayout(1,0));
 
         //Create the nodes.
-        DefaultMutableTreeNode top =
-            new DefaultMutableTreeNode("The Java Series");
+        DefaultMutableTreeNode top = new DefaultMutableTreeNode("学生信息");
         createNodes(top);
 
         //Create a tree that allows one selection at a time.
         tree = new JTree(top);
-        tree.getSelectionModel().setSelectionMode
-                (TreeSelectionModel.SINGLE_TREE_SELECTION);
+        tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 
         //Enable tool tips.
         ToolTipManager.sharedInstance().registerComponent(tree);
@@ -199,57 +152,42 @@ public class TreeIconDemo2 extends JPanel
         DefaultMutableTreeNode category = null;
         DefaultMutableTreeNode book = null;
 
-        category = new DefaultMutableTreeNode("Books for Java Programmers");
+        category = new DefaultMutableTreeNode("一年级");
         top.add(category);
 
         //original Tutorial
-        book = new DefaultMutableTreeNode(new BookInfo
-            ("The Java Tutorial: A Short Course on the Basics",
-            "tutorial.html"));
+        book = new DefaultMutableTreeNode(new BookInfo("The Java Tutorial: A Short Course on the Basics","tutorial.html"));
         category.add(book);
 
         //Tutorial Continued
-        book = new DefaultMutableTreeNode(new BookInfo
-            ("The Java Tutorial Continued: The Rest of the JDK",
-            "tutorialcont.html"));
+        book = new DefaultMutableTreeNode(new BookInfo("The Java Tutorial Continued: The Rest of the JDK","tutorialcont.html"));
         category.add(book);
 
         //JFC Swing Tutorial
-        book = new DefaultMutableTreeNode(new BookInfo
-            ("The JFC Swing Tutorial: A Guide to Constructing GUIs",
-            "swingtutorial.html"));
+        book = new DefaultMutableTreeNode(new BookInfo("The JFC Swing Tutorial: A Guide to Constructing GUIs","swingtutorial.html"));
         category.add(book);
 
         //Bloch
-        book = new DefaultMutableTreeNode(new BookInfo
-            ("Effective Java Programming Language Guide",
-	     "bloch.html"));
+        book = new DefaultMutableTreeNode(new BookInfo("Effective Java Programming Language Guide","bloch.html"));
         category.add(book);
 
         //Arnold/Gosling
-        book = new DefaultMutableTreeNode(new BookInfo
-            ("The Java Programming Language", "arnold.html"));
+        book = new DefaultMutableTreeNode(new BookInfo("The Java Programming Language", "arnold.html"));
         category.add(book);
 
         //Chan
-        book = new DefaultMutableTreeNode(new BookInfo
-            ("The Java Developers Almanac",
-             "chan.html"));
+        book = new DefaultMutableTreeNode(new BookInfo("The Java Developers Almanac", "chan.html"));
         category.add(book);
 
-        category = new DefaultMutableTreeNode("Books for Java Implementers");
+        category = new DefaultMutableTreeNode("二年级");
         top.add(category);
 
         //VM
-        book = new DefaultMutableTreeNode(new BookInfo
-            ("The Java Virtual Machine Specification",
-             "vm.html"));
+        book = new DefaultMutableTreeNode(new BookInfo("The Java Virtual Machine Specification", "vm.html"));
         category.add(book);
 
         //Language Spec
-        book = new DefaultMutableTreeNode(new BookInfo
-            ("The Java Language Specification",
-             "jls.html"));
+        book = new DefaultMutableTreeNode(new BookInfo("The Java Language Specification", "jls.html"));
         category.add(book);
     }
 
@@ -270,23 +208,18 @@ public class TreeIconDemo2 extends JPanel
      * event-dispatching thread.
      */
     private static void createAndShowGUI() {
-        //Create and set up the window.
         JFrame frame = new JFrame("TreeIconDemo2");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //Create and set up the content pane.
         TreeIconDemo2 newContentPane = new TreeIconDemo2();
-        newContentPane.setOpaque(true); //content panes must be opaque
+        newContentPane.setOpaque(true); 
         frame.setContentPane(newContentPane);
 
-        //Display the window.
         frame.pack();
         frame.setVisible(true);
     }
 
     public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
