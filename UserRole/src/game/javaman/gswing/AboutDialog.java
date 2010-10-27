@@ -8,6 +8,7 @@ package game.javaman.gswing;
  */
 import java.awt.*;
 import javax.swing.*;
+
 import java.awt.event.*;
 import game.javaman.image.*;
 
@@ -47,8 +48,7 @@ public class AboutDialog extends JDialog {
 		this.setResizable(false);
 		jButton1.setBounds(new Rectangle(176, 190, 60, 24));
 		jButton1.setText("确定");
-		jButton1
-				.addActionListener(new AboutDialog_jButton1_actionAdapter(this));
+		jButton1.addActionListener(new AboutDialog_jButton1_actionAdapter(this));
 		getContentPane().add(panel1);
 		panel1.add(jLabel2, null);
 		panel1.add(jLabel1, null);
@@ -58,6 +58,12 @@ public class AboutDialog extends JDialog {
 
 	void jButton1_actionPerformed(ActionEvent e) {
 		this.dispose();
+	}
+	public static void main(String[] args){
+		JFrame frame = new JFrame();
+		frame.setDefaultLookAndFeelDecorated(true);
+		AboutDialog dialog = new AboutDialog(frame);
+		dialog.show();
 	}
 }
 
@@ -73,4 +79,6 @@ class AboutDialog_jButton1_actionAdapter implements
 	public void actionPerformed(ActionEvent e) {
 		adaptee.jButton1_actionPerformed(e);
 	}
+	
 }
+
