@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import com.xylon.common.Common;
-//KeyOptionDialog
+
 public class MainApp extends JPanel{
 
 	private DynamicTree treePanel;
@@ -16,18 +16,13 @@ public class MainApp extends JPanel{
 	public MainApp() {
 		super(new BorderLayout());
 
-		// Create the components.
 		treePanel = new DynamicTree();
 		populateTree(treePanel);
 		
-		// Lay everything out.
 		treePanel.setPreferredSize(new Dimension(150, 300));
 		add(treePanel, BorderLayout.WEST);
 
 		JPanel panel = new JTablePanel(treePanel);
-//		panel.add(addButton);
-//		panel.add(removeButton);
-//		panel.add(clearButton);
 		add(panel, BorderLayout.CENTER);
 	}
 
