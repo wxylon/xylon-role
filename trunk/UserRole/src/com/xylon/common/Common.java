@@ -48,6 +48,14 @@ public class Common {
 		index--;
 	}
 	
+	public static int search(String name){
+		for(int i = 0; i < index; i++){
+			if(tableVales[i][0].equals(name))
+				return i;
+		}
+		return -1;
+	}
+	
 	public static String[][] getCurrentArray(){
 		String[][] temp = new String[index][4];
 		for(int i = 0; i < index; i++){
