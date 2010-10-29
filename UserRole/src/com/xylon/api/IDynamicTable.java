@@ -3,6 +3,6 @@ package com.xylon.api;
 
 
 public interface IDynamicTable {
-	public void removeCurrentColumn();
+	public int removeCurrentColumn(int selectedRow);
 	public void addCurrentColumn(Object object);
 }
