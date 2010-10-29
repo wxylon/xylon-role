@@ -43,23 +43,27 @@ public class DynamicTree extends JPanel implements IDynamicTree{
 	}
 
 	/** Remove the currently selected node. */
-	public void removeCurrentNode() {
+	public String removeCurrentNode() {
 		TreePath currentSelection = tree.getSelectionPath();
+		System.out.println();
+		
 		if (currentSelection != null) {
 			DefaultMutableTreeNode currentNode = (DefaultMutableTreeNode) (currentSelection
 					.getLastPathComponent());
 			MutableTreeNode parent = (MutableTreeNode) (currentNode.getParent());
+			System.out.println(currentNode.getUserObject());
+			
 			if (parent != null) {
 				treeModel.removeNodeFromParent(currentNode);
-				return;
+				return currentNode.getUserObject().toString();
 			}
 		}
 
 		// Either there was no selection, or the root was selected.
 		toolkit.beep();
+		return null;
 	}
 
-	/** Add child to the currently selected node. */
 	public DefaultMutableTreeNode addObject(Object child) {
 		DefaultMutableTreeNode parentNode = null;
 		TreePath parentPath = tree.getSelectionPath();
@@ -72,6 +76,20 @@ public class DynamicTree extends JPanel implements IDynamicTree{
 		}
 
 		return addObject(parentNode, child, true);
+	}
+	
+
+	public DefaultMutableTreeNode getCurrentNode() {
+		DefaultMutableTreeNode parentNode = null;
+		TreePath parentPath = tree.getSelectionPath();
+
+		if (parentPath == null) {
+			parentNode = rootNode;
+		} else {
+			parentNode = (DefaultMutableTreeNode) (parentPath
+					.getLastPathComponent());
+		}
+		return parentNode;
 	}
 
 	public DefaultMutableTreeNode addObject(DefaultMutableTreeNode parent,
@@ -86,11 +104,8 @@ public class DynamicTree extends JPanel implements IDynamicTree{
 			parent = rootNode;
 		}
 
-		// It is key to invoke this on the TreeModel, and NOT
-		// DefaultMutableTreeNode
 		treeModel.insertNodeInto(childNode, parent, parent.getChildCount());
 
-		// Make sure the user can see the lovely new node.
 		if (shouldBeVisible) {
 			tree.scrollPathToVisible(new TreePath(childNode.getPath()));
 		}

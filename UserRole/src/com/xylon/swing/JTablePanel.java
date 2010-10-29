@@ -61,24 +61,29 @@ public class JTablePanel extends JPanel implements IDynamicTable, ActionListener
 	public void actionPerformed(ActionEvent e) {
 		String command = e.getActionCommand();
 		if (ADD_COMMAND.equals(command)) {
-			LuRu luRu = new LuRu();
-			luRu.setVisible(true);
+			LuRuDialog keycontrolDialog = new LuRuDialog(treePanel, tableModel);
+			keycontrolDialog.show();
 			//treePanel.addObject("New Node " + newNodeSuffix++);
 		} else if (REMOVE_COMMAND.equals(command)) {
-			// Remove button clicked
-//			treePanel.removeCurrentNode();
-			removeCurrentColumn();
+			String name = treePanel.removeCurrentNode();
+			int k = Common.search(name.trim());
+			if(k < 0){
+			}else{
+				int index = removeCurrentColumn(k);
+				Common.delete(k);
+			}
 		} else if (EXIT_COMMAND.equals(command)) {
 			// Clear button clicked.
 			System.exit(0);
 		}
 	}
 
-	public void removeCurrentColumn() {
-		int selectedRow = table.getSelectedRow();// 获得选中行的索引
+	public int removeCurrentColumn(int selectedRow) {
+//		int selectedRow = table.getSelectedRow();// 获得选中行的索引
 		// 存在选中行
 		if (selectedRow != -1) {
 			tableModel.removeRow(selectedRow); // 删除行
 		}
+		return selectedRow;
 	}
 }
