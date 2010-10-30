@@ -2,7 +2,6 @@ package com.xylon.swing;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
