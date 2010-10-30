@@ -15,6 +15,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.TreePath;
 
 import com.xylon.common.Common;
 
@@ -36,9 +37,9 @@ public class LuRuDialog extends JDialog {
 	private JTextArea textArea4= null;
 	private ButtonGroup bg = new ButtonGroup();
 	DynamicTree tree;
-	DefaultTableModel tableModel;
+	JTablePanel tableModel;
 
-	LuRuDialog(DynamicTree tree, DefaultTableModel tableModel) {
+	LuRuDialog(DynamicTree tree, JTablePanel tableModel) {
 		super();
 		this.tree = tree;
 		this.tableModel = tableModel;
@@ -80,20 +81,20 @@ public class LuRuDialog extends JDialog {
 			jMenu1.setText("确定");
 			jMenu1.addActionListener(new ActionListener(){
 				public void actionPerformed(ActionEvent e) {
-					DefaultMutableTreeNode now = tree.getCurrentNode();
-					tree.addObject(now, jTextField1.getText().trim());
-					
 					
 					String[] temp = new String[4];
 					temp[0] = jTextField1.getText().trim();
-					temp[1] = jTextField2.getText().trim();
-					temp[2] = String.valueOf(comboBox.getSelectedIndex());
+					temp[1] = String.valueOf(comboBox.getSelectedIndex());
+					temp[2] = jTextField2.getText().trim();
 					temp[3] = textArea4.getText().trim();
 					
-					tableModel.addRow(temp);
-					
-					Common.add(temp);
-					
+					DefaultMutableTreeNode now = tree.findUserObject(comboBox.getSelectedIndex());
+//					System.out.println("now:"+new TreePath(now.getPath()).toString());
+					DefaultMutableTreeNode treeNode = tree.addObject(now, jTextField1.getText().trim());
+//					System.out.println(new TreePath(treeNode.getPath()).toString());
+					Common.add(temp, new TreePath(treeNode.getPath()));
+					temp[1] = Common.grade.get(temp[1]);
+					tableModel.addTheColume(temp);
 					close();
 					
 //					System.out.println(jTextField1.getText());
