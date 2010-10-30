@@ -2,6 +2,7 @@ package com.xylon.swing;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Rectangle;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -44,7 +45,7 @@ public class MainApp extends JPanel{
 	private static void createAndShowGUI() {
 		JFrame frame = new JFrame("信息管理");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		frame.setLocation(300, 150);
 		MainApp newContentPane = new MainApp();
 		newContentPane.setOpaque(true); 
 		frame.setContentPane(newContentPane);

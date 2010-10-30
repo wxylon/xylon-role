@@ -2,6 +2,7 @@ package com.xylon.swing;
 
 import java.awt.Container;
 import java.awt.Rectangle;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -18,6 +20,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
 import com.xylon.common.Common;
+import com.xylon.common.StringUtils;
 
 /////信息录入类
 
@@ -47,7 +50,7 @@ public class LuRuDialog extends JDialog {
 		this.setModal(true);
 		this.setResizable(false);
 		// this.setSize(230, 284);
-		this.setBounds(300, 0, 300, 400);
+		this.setBounds(430, 200, 300, 400);
 		jContentPane = this.getContentPane();
 		jLabel1 = new JLabel();
 		jLabel1.setBounds(new Rectangle(37, 44, 39, 18));
@@ -87,6 +90,19 @@ public class LuRuDialog extends JDialog {
 					temp[1] = String.valueOf(comboBox.getSelectedIndex());
 					temp[2] = jTextField2.getText().trim();
 					temp[3] = textArea4.getText().trim();
+					
+					if(StringUtils.isNotEmpty(temp[0]) && StringUtils.isNotEmpty(temp[2]) && StringUtils.isNotEmpty(temp[3]) ){
+						if(StringUtils.isNumber(temp[2])){
+						}else{
+							Toolkit.getDefaultToolkit().beep();   
+							JOptionPane.showMessageDialog(null, "请正确填写平局成绩!", "数据错误", JOptionPane.ERROR_MESSAGE);   
+							return;
+						}
+					}else{
+						Toolkit.getDefaultToolkit().beep();   
+						JOptionPane.showMessageDialog(null, "请填写完整数据！", "数据错误", JOptionPane.ERROR_MESSAGE);   
+						return;
+					}
 					
 					DefaultMutableTreeNode now = tree.findUserObject(comboBox.getSelectedIndex());
 //					System.out.println("now:"+new TreePath(now.getPath()).toString());
