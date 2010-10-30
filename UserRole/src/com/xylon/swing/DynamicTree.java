@@ -30,9 +30,8 @@ public class DynamicTree extends JPanel implements IDynamicTree, MouseListener{
 		super(new GridLayout(1, 0));
 
 		rootNode = new DefaultMutableTreeNode("学生信息");
-		treeModel = new DefaultTreeModel(rootNode);
-
-		tree = new JTree(treeModel);
+		tree = new JTree(rootNode);
+		treeModel = (DefaultTreeModel) tree.getModel();
 		tree.setEditable(true);
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		tree.setShowsRootHandles(true);
