@@ -104,13 +104,17 @@ public class LuRuDialog extends JDialog {
 						return;
 					}
 					
-					DefaultMutableTreeNode now = tree.findUserObject(comboBox.getSelectedIndex());
 //					System.out.println("now:"+new TreePath(now.getPath()).toString());
+					JOptionPane.showConfirmDialog(null, "确认", "确认", JOptionPane.YES_NO_OPTION); 
+					
+					DefaultMutableTreeNode now = tree.findUserObject(comboBox.getSelectedIndex());
+					
 					DefaultMutableTreeNode treeNode = tree.addObject(now, jTextField1.getText().trim());
 //					System.out.println(new TreePath(treeNode.getPath()).toString());
 					Common.add(temp, new TreePath(treeNode.getPath()));
 					temp[1] = Common.grade.get(temp[1]);
 					tableModel.addTheColume(temp);
+					tree.selectRow(new TreePath(treeNode.getPath()));
 					close();
 					
 //					System.out.println(jTextField1.getText());
