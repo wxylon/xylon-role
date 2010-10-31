@@ -5,6 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
 
@@ -55,10 +56,16 @@ public class MainApp extends JPanel{
 	}
 	
 	public static void main(String[] args) {
-		javax.swing.SwingUtilities.invokeLater(new Runnable() {
-			public void run() {
-				createAndShowGUI();
-			}
-		});
+		try {
+			UIManager
+					.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+		} catch (Exception evt) {
+		}
+		createAndShowGUI();
+//		javax.swing.SwingUtilities.invokeLater(new Runnable() {
+//			public void run() {
+//				createAndShowGUI();
+//			}
+//		});
 	}
 }
