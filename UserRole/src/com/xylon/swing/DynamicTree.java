@@ -12,11 +12,13 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
+import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
 import com.xylon.api.IDynamicTree;
 import com.xylon.common.Common;
+import com.xylon.common.MyDefaultTreeCellRenderer;
 
 public class DynamicTree extends JPanel implements IDynamicTree, MouseListener{
 	
@@ -32,6 +34,7 @@ public class DynamicTree extends JPanel implements IDynamicTree, MouseListener{
 		rootNode = new DefaultMutableTreeNode("学生信息");
 		tree = new JTree(rootNode);
 		treeModel = (DefaultTreeModel) tree.getModel();
+		tree.setCellRenderer(new MyDefaultTreeCellRenderer());
 		tree.setEditable(true);
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		tree.setShowsRootHandles(true);
@@ -152,6 +155,7 @@ public class DynamicTree extends JPanel implements IDynamicTree, MouseListener{
 			this.tablePanel.selectRow(Common.treepath.get(parentPath));
 		}
 	}
+	
 	
 	public void selectRow(TreePath path){
 	    tree.addSelectionPath(path);
