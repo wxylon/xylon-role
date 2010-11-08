@@ -110,7 +110,7 @@ public class LuRuDialog extends JDialog {
 					DefaultMutableTreeNode now = tree.findUserObject(comboBox.getSelectedIndex());
 					
 					DefaultMutableTreeNode treeNode = tree.addObject(now, jTextField1.getText().trim());
-//					System.out.println(new TreePath(treeNode.getPath()).toString());
+//					System.out.println("--->:"+new TreePath(treeNode.getPath()).toString());
 					Common.add(temp, new TreePath(treeNode.getPath()));
 					temp[1] = Common.grade.get(temp[1]);
 					tableModel.addTheColume(temp);
