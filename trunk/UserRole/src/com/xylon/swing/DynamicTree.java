@@ -158,9 +158,44 @@ public class DynamicTree extends JPanel implements IDynamicTree, MouseListener{
 	
 	
 	public void selectRow(TreePath path){
+		expandTree(tree);
 	    tree.addSelectionPath(path);
 		tree.expandPath(path);
 	}
+	
+	/**
+	 * 展开一棵树
+	 * @param tree
+	 */
+	private void expandTree(JTree tree) {
+		TreeNode node = (TreeNode) tree.getModel().getRoot();
+		expandAll(tree, new TreePath(node), false);
+	}
+
+	/**
+	 * 完全展开一棵树或关闭一棵树
+	 * @param tree JTree
+	 * @param parent 父节点
+	 * @param expand true 表示展开，false 表示关闭
+	 */
+	private void expandAll(JTree tree, TreePath parent, boolean expand) {
+		TreeNode node = (TreeNode) parent.getLastPathComponent();
+
+		if (node.getChildCount() > 0) {
+			for (Enumeration e = node.children(); e.hasMoreElements();) {
+				TreeNode n = (TreeNode) e.nextElement();
+				TreePath path = parent.pathByAddingChild(n);
+				expandAll(tree, path, expand);
+			}
+		}
+		if (expand) {
+			tree.expandPath(parent);
+		} else {
+			tree.collapsePath(parent);
+		}
+	} 
+
+
 
 	public void mouseEntered(MouseEvent e) {
 		

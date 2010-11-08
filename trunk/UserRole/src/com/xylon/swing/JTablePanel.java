@@ -3,12 +3,10 @@ package com.xylon.swing;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -89,7 +87,6 @@ public class JTablePanel extends JPanel implements IDynamicTable, ActionListener
 	
 	public int removeCurrentColumn() {
 		int selectedRow = table.getSelectedRow();// 获得选中行的索引
-		System.out.println("sssssss"+selectedRow);
 		// 存在选中行
 		if (selectedRow != -1) {
 			tableModel.removeRow(selectedRow); // 删除行
@@ -107,7 +104,7 @@ public class JTablePanel extends JPanel implements IDynamicTable, ActionListener
 	
 	public void addTheColume(String[] temp){
 		tableModel.addRow(temp);
-		System.out.println(Common.getCurrentArray().length+"----->"+tableModel.getRowCount());
+//		System.out.println(Common.getCurrentArray().length+"----->"+tableModel.getRowCount());
 		table.updateUI();
 	}
 	
