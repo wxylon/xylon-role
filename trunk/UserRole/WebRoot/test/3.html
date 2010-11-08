@@ -1,0 +1,350 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<title>无标题文档</title>
+		<script
+			src="http://www.cssrain.cn/demo/JQuery+API/jquery-1[1].2.1.pack.js"></script>
+		<script type="text/javascript">
+$(function(){
+	$("#newnotice").floatdiv("");
+	$(window).load(function(){
+		$("div[id=newnotice]").slideDown("slow");
+	})	
+	$("label[id=tomin]").click(function(){
+		$("div[id=noticecon]","div[id=newnotice]").slideUp();
+	});
+	$("label[id=tomax]").click(function(){
+		$("div[id=noticecon]","div[id=newnotice]").slideDown();
+	});
+	$("label[id=toclose]").click(function(){
+		$("div[id=newnotice]").hide();
+	});
+});
+/*任意位置浮动固定层*/
+
+/*没剑(http://regedit.cnblogs.com) 08-03-11*/
+
+/*说明：可以让指定的层浮动到网页上的任何位置，当滚动条滚动时它会保持在当前位置不变，不会产生闪动*/
+
+/*调用：
+
+1 无参数调用：默认浮动在右下角
+
+$("#id").floatdiv();
+
+ 
+
+2 内置固定位置浮动
+
+//右下角
+
+$("#id").floatdiv("rightbottom");
+
+//左下角
+
+$("#id").floatdiv("leftbottom");
+
+//左上角
+
+$("#id").floatdiv("lefttop");
+
+//右上角
+
+$("#id").floatdiv("righttop");
+
+//居中
+
+$("#id").floatdiv("middle");
+
+ 
+
+3 自定义位置浮动
+
+$("#id").floatdiv({left:"10px",top:"10px"});
+
+以上参数，设置浮动层在left 10个像素,top 10个像素的位置
+
+*/
+
+jQuery.fn.floatdiv=function(location){
+
+	//ie6要隐藏纵向滚动条
+
+	var isIE6=false;
+
+	if($.browser.msie && $.browser.version=="6.0"){
+
+		$("html").css("overflow-x","auto").css("overflow-y","hidden");
+
+		isIE6=true;
+
+	};
+
+	$("body").css({margin:"0px",padding:"0 10px 0 10px",
+
+		border:"0px",
+
+		height:"100%",
+
+		overflow:"auto"
+
+	});
+
+	return this.each(function(){
+
+		var loc;//层的绝对定位位置
+
+		if(location==undefined || location.constructor == String){
+
+			switch(location){
+
+				case("rightbottom")://右下角
+
+					loc={right:"0px",bottom:"0px"};
+
+					break;
+
+				case("leftbottom")://左下角
+
+					loc={left:"0px",bottom:"0px"};
+
+					break;	
+
+				case("lefttop")://左上角
+
+					loc={left:"0px",top:"0px"};
+
+					break;
+
+				case("righttop")://右上角
+
+					loc={right:"0px",top:"0px"};
+
+					break;
+
+				case("middle")://居中
+
+					var l=0;//居左
+
+					var t=0;//居上
+
+					var windowWidth,windowHeight;//窗口的高和宽
+
+					//取得窗口的高和宽
+
+					if (self.innerHeight) {
+
+						windowWidth=self.innerWidth;
+
+						windowHeight=self.innerHeight;
+
+					}else if (document.documentElement&&document.documentElement.clientHeight) {
+
+						windowWidth=document.documentElement.clientWidth;
+
+						windowHeight=document.documentElement.clientHeight;
+
+					} else if (document.body) {
+
+						windowWidth=document.body.clientWidth;
+
+						windowHeight=document.body.clientHeight;
+
+					}
+
+					l=windowWidth/2-$(this).width()/2;
+
+					t=windowHeight/2-$(this).height()/2;
+
+					loc={left:l+"px",top:t+"px"};
+
+					break;
+
+				default://默认为右下角
+
+					loc={right:"0px",bottom:"0px"};
+
+					break;
+
+			}
+
+		}else{
+
+			loc=location;
+
+		}		   
+
+		$(this).css("z-index","9999").css(loc).css("position","fixed");
+
+		if(isIE6){
+
+			if(loc.right!=undefined){
+
+				$(this).css("right","18px");
+
+			}
+
+			$(this).css("position","absolute");
+
+		}
+
+	});
+
+};
+
+</script>
+
+		<style type="text/css">
+html {
+	background: #ccc
+}
+
+#newnotice {
+	display: block;
+}
+
+<!--
+#newnotice { /*display:none;*/
+	width: 250px; /*height:22px;*/;
+	border: solid #9BDF70 1px;
+	background-color: #F0FBEB;
+}
+
+#newnotice p {
+	font-size: 12px;
+	margin: 1px;
+	padding: 0px 2px 0px 5px;
+	background-color: #C2ECA7;
+	color: #666666;
+	height: 20px;
+	line-height: 20px;
+}
+
+#newnotice p .title {
+	float: left;
+}
+
+#newnotice p #bts {
+	display: block;
+	float: right;
+	width: 48px;
+	height: 15px;
+	/*border:#000000 solid 1px;*/
+}
+
+#newnotice p #bts .button {
+	display: block;
+	float: left;
+	width: 15px;
+	height: 15px;
+	line-height: 15px;
+	cursor: pointer;
+	/*border:#000000 solid 1px;*/
+}
+
+#newnotice p #bts #tomin {
+	background-image:
+		url(http://img.namipan.com/p/092113faefc3951569e84c0e71dfe4eaf884051d22010000/0/notice_button.gif)
+		;
+	background-position: center;
+}
+
+#newnotice p #bts #tomax {
+	background-image:
+		url(http://img.namipan.com/p/092113faefc3951569e84c0e71dfe4eaf884051d22010000/0/notice_button.gif)
+		;
+	background-position: bottom;
+}
+
+#newnotice p #bts #toclose {
+	background-image:
+		url(http://img.namipan.com/p/092113faefc3951569e84c0e71dfe4eaf884051d22010000/0/notice_button.gif)
+		;
+}
+
+#newnotice div {
+	font-size: 12px;
+	margin: 1px;
+	padding: 0px 5px 0px 5px;
+	background-color: #FFFFFF;
+	color: #999999;
+	height: 75px;
+	line-height: 20px;
+}
+-->
+</style>
+
+	</head>
+	<body>
+		<pre>
+</pre>
+		<br />
+		a
+		<br />
+		a
+
+		<br />
+		a
+
+		<br />
+		a
+
+		<br />
+		a
+
+		<br />
+		a
+		a
+
+		<br />
+		a
+
+		<br />
+		a
+
+		<br />
+		a
+
+		<br />
+		a
+
+		<br />
+
+
+		<br />
+		a
+		<div id="newnotice">
+
+			<p>
+				<span class="title">最新公告</span>
+				<span id="bts"> <label class="button" id="tomin" title="最小化">
+						
+					</label> <label class="button" id="tomax" title="最大化">
+						
+					</label> <label class="button" id="toclose" title="关闭">
+						
+					</label> </span>
+			</p>
+
+			<div id="noticecon">
+
+				(
+				<a
+					href="http://www.cnblogs.com/regedit/archive/2008/03/11/1100170.html">没剑(C-R团队之一)</a>)开发..前几天和Deeka一起在研究,因为前几次发的效果都有点不兼容FF.
+
+				这次没剑做出来.并做成了插件.当然可以放在网页中任何一个角落.
+
+				<a href="http://www.cssrain.cn">cssrain.cn</a>
+			</div>
+
+		</div>
+
+
+
+	</body>
+
+
+
+</html>
+
