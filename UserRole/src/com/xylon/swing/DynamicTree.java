@@ -168,6 +168,7 @@ public class DynamicTree extends JPanel implements IDynamicTree, MouseListener{
 	 * @param tree
 	 */
 	private void expandTree(JTree tree) {
+		// 根节点
 		TreeNode node = (TreeNode) tree.getModel().getRoot();
 		expandAll(tree, new TreePath(node), false);
 	}
