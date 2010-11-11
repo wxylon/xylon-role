@@ -85,8 +85,7 @@ public class DynamicTree extends JPanel implements IDynamicTree, MouseListener{
 		TreePath currentSelection = tree.getSelectionPath();
 		TreePath treePath = null;
 		if (currentSelection != null && null != Common.treepath.get(currentSelection)) {
-			DefaultMutableTreeNode currentNode = (DefaultMutableTreeNode) (currentSelection
-					.getLastPathComponent());
+			DefaultMutableTreeNode currentNode = (DefaultMutableTreeNode) (currentSelection.getLastPathComponent());
 			treePath = new TreePath(currentNode.getPath());
 			MutableTreeNode parent = (MutableTreeNode) (currentNode.getParent());
 			System.out.println(currentNode.getUserObject());
@@ -108,25 +107,10 @@ public class DynamicTree extends JPanel implements IDynamicTree, MouseListener{
 		if (parentPath == null) {
 			parentNode = rootNode;
 		} else {
-			parentNode = (DefaultMutableTreeNode) (parentPath
-					.getLastPathComponent());
+			parentNode = (DefaultMutableTreeNode) (parentPath.getLastPathComponent());
 		}
 
 		return addObject(parentNode, child, true);
-	}
-	
-
-	public DefaultMutableTreeNode getCurrentNode() {
-		DefaultMutableTreeNode parentNode = null;
-		TreePath parentPath = tree.getSelectionPath();
-
-		if (parentPath == null) {
-			parentNode = rootNode;
-		} else {
-			parentNode = (DefaultMutableTreeNode) (parentPath
-					.getLastPathComponent());
-		}
-		return parentNode;
 	}
 
 	public DefaultMutableTreeNode addObject(DefaultMutableTreeNode parent,
