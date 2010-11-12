@@ -6,4 +6,5 @@ import javax.swing.tree.TreePath;
 public interface IDynamicTree {
 	public TreePath removeCurrentNode();
 	public DefaultMutableTreeNode addObject(Object child);
+	
 }
