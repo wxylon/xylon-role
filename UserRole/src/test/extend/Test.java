@@ -1,5 +1,8 @@
 package test.extend;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Test {
 
 	public static void main(String[] args) {
@@ -8,6 +11,8 @@ public class Test {
 		
 		Son son = new Son();
 		son.init();
+		
+		Map map = new HashMap();
 	}
 
 }
