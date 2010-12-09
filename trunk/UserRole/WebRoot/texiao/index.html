@@ -1,65 +1,76 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>仿韩国某购物网站的商品展示效果 - 分享JavaScript-sharejs.com</title>
-<meta name="Copyright" content="JavaScript分享网 http://www.sharejs.com/" />
-<meta name="description" content="仿韩国某购物网站的商品展示效果,JavaScript分享网" />
-<meta content="JavaScript,分享,JavaScript代码,Ajax" name="keywords" />
-<STYLE type=text/css>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>仿韩国某购物网站的商品展示效果 - 分享JavaScript-sharejs.com</title>
+		<meta name="Copyright" content="JavaScript分享网 http://www.sharejs.com/" />
+		<meta name="description" content="仿韩国某购物网站的商品展示效果,JavaScript分享网" />
+		<meta content="JavaScript,分享,JavaScript代码,Ajax" name="keywords" />
+		<STYLE type=text/css>
 .clssMainRoll {
-	FILTER: progid:DXImageTransform.Microsoft.Slide(slidestyle=SWAP,Bands=1); CURSOR: pointer
+	FILTER: progid : DXImageTransform . Microsoft .
+		Slide(slidestyle = SWAP, Bands = 1);
+	CURSOR: pointer
 }
+
 BODY {
-	BORDER-RIGHT: medium none; BORDER-TOP: medium none; MARGIN: 0px; BORDER-LEFT: medium none; BORDER-BOTTOM: medium none
+	BORDER-RIGHT: medium none;
+	BORDER-TOP: medium none;
+	MARGIN: 0px;
+	BORDER-LEFT: medium none;
+	BORDER-BOTTOM: medium none
 }
 </STYLE>
+		<SCRIPT language=javascript src="images/sharejs.js"></SCRIPT>
+	<body>
+		<br />
+		<br />
+		<TABLE cellSpacing=0 cellPadding=0 width=505 align=center>
+			<TBODY>
+				<TR>
+					<TD id=IDS_DIV_MAIN_TOP_ROLL_DETAIL width=205>
+						<IMG class=clssMainRoll height=240 src="images/02.jpg" width=505
+							border=0 name=IMG_MAIN_TOP_ROLL_DETAIL/>
+					</TD>
+				</TR>
+				<TR>
+					<TD width=505>
+						<TABLE cellSpacing=0 cellPadding=0 width=505 align=center>
+							<TBODY>
+								<TR>
+									<TD vAlign=top height=35>
+										<IMG style="CURSOR: hand" onclick=MainTopRoll.alterImage(0)
+											src="img/a1.gif" border=0 name=IMGS_MAIN_TOP_ROLL_THUMBNAIL/>
+									</TD>
+									<TD vAlign=top height=35>
+										<IMG style="CURSOR: hand" onclick=MainTopRoll.alterImage(1)
+											src="img/a2.gif" border=0 name=IMGS_MAIN_TOP_ROLL_THUMBNAIL/>
+									</TD>
+									<TD vAlign=top height=35>
+										<IMG style="CURSOR: hand" onclick=MainTopRoll.alterImage(2)
+											src="img/a3.gif" border=0 name=IMGS_MAIN_TOP_ROLL_THUMBNAIL/>
+									</TD>
+									<TD vAlign=top height=35>
+										<IMG style="CURSOR: hand" onclick=MainTopRoll.alterImage(3)
+											src="img/a4.gif" border=0 name=IMGS_MAIN_TOP_ROLL_THUMBNAIL/>
+									</TD>
+									<TD vAlign=top height=35>
+										<IMG style="CURSOR: hand" onclick=MainTopRoll.alterImage(4)
+											src="img/a5.gif" border=0 name=IMGS_MAIN_TOP_ROLL_THUMBNAIL/>
+									</TD>
+									<TD vAlign=top height=35>
+										<IMG style="CURSOR: hand" onclick=MainTopRoll.alterImage(5)
+											src="img/a6.gif" border=0 name=IMGS_MAIN_TOP_ROLL_THUMBNAIL />
+									</TD>
+								</TR>
+							</TBODY>
+						</TABLE>
+					</TD>
+				</TR>
+			</TBODY>
+		</TABLE>
 
-<SCRIPT language=javascript src="images/sharejs.js"></SCRIPT>
-
-
-
-<body>
-<br />
-<br />
-<TABLE cellSpacing=0 cellPadding=0 width=505 align=center>
-              <TBODY>
-              <TR>
-                <TD id=IDS_DIV_MAIN_TOP_ROLL_DETAIL width=205><IMG 
-                  class=clssMainRoll height=240 src="images/02.jpg" 
-                  width=505 border=0 name=IMG_MAIN_TOP_ROLL_DETAIL></TD></TR>
-              <TR>
-                <TD width=505>
-                  <TABLE cellSpacing=0 cellPadding=0 width=505 align=center>
-                    <TBODY>
-                    <TR>
-                      <TD vAlign=top height=35><IMG style="CURSOR: hand" 
-                        onclick=MainTopRoll.alterImage(0) 
-                        src="img/a1.gif" border=0 
-                        name=IMGS_MAIN_TOP_ROLL_THUMBNAIL></TD>
-                      <TD vAlign=top height=35><IMG style="CURSOR: hand" 
-                        onclick=MainTopRoll.alterImage(1) 
-                        src="img/a2.gif" border=0 
-                        name=IMGS_MAIN_TOP_ROLL_THUMBNAIL></TD>
-                      <TD vAlign=top height=35><IMG style="CURSOR: hand" 
-                        onclick=MainTopRoll.alterImage(2) 
-                        src="img/a3.gif" border=0 
-                        name=IMGS_MAIN_TOP_ROLL_THUMBNAIL></TD>
-                      <TD vAlign=top height=35><IMG style="CURSOR: hand" 
-                        onclick=MainTopRoll.alterImage(3) 
-                        src="img/a4.gif" border=0 
-                        name=IMGS_MAIN_TOP_ROLL_THUMBNAIL></TD>
-                      <TD vAlign=top height=35><IMG style="CURSOR: hand" 
-                        onclick=MainTopRoll.alterImage(4) 
-                        src="img/a5.gif" border=0 
-                        name=IMGS_MAIN_TOP_ROLL_THUMBNAIL></TD>
-                      <TD vAlign=top height=35><IMG style="CURSOR: hand" 
-                        onclick=MainTopRoll.alterImage(5) 
-                        src="img/a6.gif" border=0 
-                        name=IMGS_MAIN_TOP_ROLL_THUMBNAIL />
- </TD></TR></TBODY></TABLE></TD></TR></TBODY></TABLE>           
-
-<SCRIPT language=JavaScript><!--var	 
+		<SCRIPT language=JavaScript><!--var	 
 MainTopRoll = new xwzRollingImageTrans("IMG_MAIN_TOP_ROLL_DETAIL", "IMGS_MAIN_TOP_ROLL_THUMBNAIL");
 
 MainTopRoll.addItem("http://www.sharejs.com/",
@@ -83,13 +94,16 @@ MainTopRoll.addItem("http://www.sharejs.com/",
 MainTopRoll.Index =  parseInt('1');MainTopRoll.install();//--></SCRIPT>
 
 
-<br><br/>
-<div align="center">
-<script language="javascript" src="http://www.sharejs.com/js/720.js"></script>
-<br><br/>
-获取更多JavaScript代码，请登录JavaScript分享网 <a href="http://www.sharejs.com">http://www.sharejs.com</a>
-<br/>
-转载请注明出处，本代码仅供学习交流，不可用于任何商业用途！
-</div>
-</body>
+		<br />
+		<br />
+		<div align="center">
+			<script language="javascript" src="http://www.sharejs.com/js/720.js"></script>
+			<br/>
+			<br />
+			获取更多JavaScript代码，请登录JavaScript分享网
+			<a href="http://www.sharejs.com">http://www.sharejs.com</a>
+			<br />
+			转载请注明出处，本代码仅供学习交流，不可用于任何商业用途！
+		</div>
+	</body>
 </html>
