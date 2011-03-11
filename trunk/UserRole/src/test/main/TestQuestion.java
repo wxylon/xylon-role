@@ -5,6 +5,7 @@ package test.main;
  */
 import java.util.Iterator;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 public class TestQuestion {
 	private String[] b = new String[] { "1", "2", "2", "3", "4", "5" };
@@ -16,7 +17,15 @@ public class TestQuestion {
 	String tt = "";
 
 	public static void main(String[] args) {
-		new TestQuestion().start();
+//		new TestQuestion().start();
+		test();
+	}
+	
+	private static void test(){
+		String pattern = "[\u0391-\uFFE5]{1}[\u0391-\uFFE5]{1,7}|[a-zA-Z_]{1}[a-zA-Z0-9]{3,14}[a-zA-Z0-9]{1}|[0-9]{1}[0-9]{0,13}[a-zA-Z]{1,13}[0-9]{0,13}[a-zA-Z0-9]{1}";
+
+		String test = "0s1111";
+		System.out.println(Pattern.compile(pattern).matcher(test).matches());
 	}
 
 	private void start() {
@@ -74,6 +83,7 @@ public class TestQuestion {
 			set.add(result);
 		}
 		for (int j = 0; j < n; j++) {
+			show();
 			if (a[startIndex][j] == 1 && visited[j] == false) {
 				depthFirstSearch(j);
 			} else {
@@ -82,7 +92,18 @@ public class TestQuestion {
 		}
 
 		// restore the result value and visited value after listing a node.
+		show();
 		result = result.substring(0, result.length() - 1);
+		show();
 		visited[startIndex] = false;
+		show();
+	}
+	
+	private void show(){
+		for(int i = 0; i < visited.length; i++){
+			System.out.print(visited[i]+"->");
+		}
+		System.out.println();
+		System.out.println("result:"+result);
 	}
 }
