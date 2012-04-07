@@ -91,8 +91,40 @@ var   f   =   new   Array(new   Array("1","1111"), new   Array("2222"),   new   
 
 
 
+var h = new Array(1, 2, 4, 255, 3, 3, 3, 2, 1);
+var i  = new Array(5, 6, 7, 8);
+var j = h.concat(i);
+//alert("h = " + h +"; i = " + i + "; j = " + j);
+//删除最后一个
+//h.pop();
+//末尾追加
+//h.push(5, 6);
+//返回一个元素顺序被反转的 Array 对象。 
+//h.reverse();
+//移除数组中的第一个元素并返回该元素。
+//alert(h.shift());
+//将指定的元素插入数组开始位置并返回该数组。
+//alert("h = " + h +"; h.unshift([10, 11]) = " + h.unshift([10, 11]) + "; h = " + h);
+//返回一个数组的一段。
+//var ja = h.slice(0, 2);
+//alert(ja);
+function compaor(one, two){
+	if(one > two){
+		return 1;
+	}else if(one < two){
+		return -1;
+	}else{
+		return 0;
+	}
+}
+//如果这个参数被省略，那么元素将按照 ASCII 字符顺序进行升序排列。
+//alert(h.sort(compaor));
 
+//alert(h.splice(0, 1, [0,0,0,0,0]) + "--->" + h.sort(compaor));
+//alert(h.valueOf());
 
+var jb = 255;
+alert(jb.toString(2));
 
 
 
